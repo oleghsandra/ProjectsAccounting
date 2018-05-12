@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectsAccountingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ProjectRates">
+    <Key>
+      <PropertyRef Name="ProjectRateId" />
+    </Key>
+    <Property Name="ProjectRateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ExternalRate" Type="float" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="255" />
+    <Property Name="PMCID" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="255" />
+    <Property Name="FullName" Type="varchar" MaxLength="255" />
+    <Property Name="PMCID" Type="varchar" MaxLength="255" />
+    <Property Name="InternalRate" Type="float" />
+  </EntityType>
+  <Association Name="FK__ProjectRa__Proje__4316F928">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+    <End Role="ProjectRates" Type="Self.ProjectRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="ProjectRates">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProjectRa__UserI__4222D4EF">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="ProjectRates" Type="Self.ProjectRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ProjectRates">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjectsAccountingModelStoreContainer">
+    <EntitySet Name="ProjectRates" EntityType="Self.ProjectRates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ProjectRa__Proje__4316F928" Association="Self.FK__ProjectRa__Proje__4316F928">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="ProjectRates" EntitySet="ProjectRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProjectRa__UserI__4222D4EF" Association="Self.FK__ProjectRa__UserI__4222D4EF">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="ProjectRates" EntitySet="ProjectRates" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

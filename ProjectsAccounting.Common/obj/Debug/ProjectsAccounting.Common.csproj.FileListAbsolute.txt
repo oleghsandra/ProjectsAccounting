@@ -1,0 +1,6 @@
+C:\LP\КН-37 другий семестр\Курсова\ProjectsAccounting\ProjectsAccounting\ProjectsAccounting.Common\bin\Debug\ProjectsAccounting.Common.dll
+C:\LP\КН-37 другий семестр\Курсова\ProjectsAccounting\ProjectsAccounting\ProjectsAccounting.Common\bin\Debug\ProjectsAccounting.Common.pdb
+C:\LP\КН-37 другий семестр\Курсова\ProjectsAccounting\ProjectsAccounting\ProjectsAccounting.Common\obj\Debug\ProjectsAccounting.Common.csproj.CoreCompileInputs.cache
+C:\LP\КН-37 другий семестр\Курсова\ProjectsAccounting\ProjectsAccounting\ProjectsAccounting.Common\obj\Debug\ProjectsAccounting.Common.dll
+C:\LP\КН-37 другий семестр\Курсова\ProjectsAccounting\ProjectsAccounting\ProjectsAccounting.Common\obj\Debug\ProjectsAccounting.Common.pdb
+C:\LP\КН-37 другий семестр\Курсова\ProjectsAccounting\ProjectsAccounting\ProjectsAccounting.Common\obj\Debug\ProjectsAccounting.Common.csprojAssemblyReference.cache

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Tfs_DefaultCollectionModelStoreContainer" CdmEntityContainer="Tfs_DefaultCollectionEntities">
+    <EntitySetMapping Name="tbl_Project">
+      <EntityTypeMapping TypeName="Tfs_DefaultCollectionModel.tbl_Project">
+        <MappingFragment StoreEntitySet="tbl_Project">
+          <ScalarProperty Name="MigrationError" ColumnName="MigrationError" />
+          <ScalarProperty Name="MigrationState" ColumnName="MigrationState" />
+          <ScalarProperty Name="IsFailureTypeCustomized" ColumnName="IsFailureTypeCustomized" />
+          <ScalarProperty Name="IsResolutionStateCustomized" ColumnName="IsResolutionStateCustomized" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="SequenceId" ColumnName="SequenceId" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectUri" ColumnName="ProjectUri" />
+          <ScalarProperty Name="DataspaceId" ColumnName="DataspaceId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="PartitionId" ColumnName="PartitionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADObjectMemberships">
+      <EntityTypeMapping TypeName="Tfs_DefaultCollectionModel.ADObjectMemberships">
+        <MappingFragment StoreEntitySet="ADObjectMemberships">
+          <ScalarProperty Name="MemberObjectSID" ColumnName="MemberObjectSID" />
+          <ScalarProperty Name="ObjectSID" ColumnName="ObjectSID" />
+          <ScalarProperty Name="PartitionId" ColumnName="PartitionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADObjects">
+      <EntityTypeMapping TypeName="Tfs_DefaultCollectionModel.ADObjects">
+        <MappingFragment StoreEntitySet="ADObjects">
+          <ScalarProperty Name="ForceProcess" ColumnName="ForceProcess" />
+          <ScalarProperty Name="TeamFoundationId" ColumnName="TeamFoundationId" />
+          <ScalarProperty Name="SeqId" ColumnName="SeqId" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ObjectSID" ColumnName="ObjectSID" />
+          <ScalarProperty Name="fDeleted" ColumnName="fDeleted" />
+          <ScalarProperty Name="LastSyncUTC" ColumnName="LastSyncUTC" />
+          <ScalarProperty Name="ObjectSpecialType" ColumnName="ObjectSpecialType" />
+          <ScalarProperty Name="ObjectCategory" ColumnName="ObjectCategory" />
+          <ScalarProperty Name="MailNickName" ColumnName="MailNickName" />
+          <ScalarProperty Name="SamAccountName" ColumnName="SamAccountName" />
+          <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+          <ScalarProperty Name="PartitionId" ColumnName="PartitionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Iteration">
+      <EntityTypeMapping TypeName="Tfs_DefaultCollectionModel.tbl_Iteration">
+        <MappingFragment StoreEntitySet="tbl_Iteration">
+          <ScalarProperty Name="SequenceId" ColumnName="SequenceId" />
+          <ScalarProperty Name="DataspaceId" ColumnName="DataspaceId" />
+          <ScalarProperty Name="ProjectUri" ColumnName="ProjectUri" />
+          <ScalarProperty Name="Iteration" ColumnName="Iteration" />
+          <ScalarProperty Name="IterationUri" ColumnName="IterationUri" />
+          <ScalarProperty Name="IterationId" ColumnName="IterationId" />
+          <ScalarProperty Name="PartitionId" ColumnName="PartitionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkItemLongTexts">
+      <EntityTypeMapping TypeName="Tfs_DefaultCollectionModel.WorkItemLongTexts">
+        <MappingFragment StoreEntitySet="WorkItemLongTexts">
+          <ScalarProperty Name="PartitionTextID" ColumnName="PartitionTextID" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="TextID" ColumnName="TextID" />
+          <ScalarProperty Name="WordsDocumentType" ColumnName="WordsDocumentType" />
+          <ScalarProperty Name="IndexedWords" ColumnName="IndexedWords" />
+          <ScalarProperty Name="fHtml" ColumnName="fHtml" />
+          <ScalarProperty Name="Rev" ColumnName="Rev" />
+          <ScalarProperty Name="Changed_Order" ColumnName="Changed Order" />
+          <ScalarProperty Name="Words" ColumnName="Words" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FldID" ColumnName="FldID" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="DataspaceId" ColumnName="DataspaceId" />
+          <ScalarProperty Name="PartitionId" ColumnName="PartitionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_denorm_WorkItemCoreLatest">
+      <EntityTypeMapping TypeName="Tfs_DefaultCollectionModel.vw_denorm_WorkItemCoreLatest">
+        <MappingFragment StoreEntitySet="vw_denorm_WorkItemCoreLatest">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Watermark" ColumnName="Watermark" />
+          <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+          <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IterationId" ColumnName="IterationId" />
+          <ScalarProperty Name="IterationPath" ColumnName="IterationPath" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="AreaPath" ColumnName="AreaPath" />
+          <ScalarProperty Name="WorkItemType" ColumnName="WorkItemType" />
+          <ScalarProperty Name="AuthorizedAs" ColumnName="AuthorizedAs" />
+          <ScalarProperty Name="RevisedDate" ColumnName="RevisedDate" />
+          <ScalarProperty Name="AuthorizedDate" ColumnName="AuthorizedDate" />
+          <ScalarProperty Name="Rev" ColumnName="Rev" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataspaceId" ColumnName="DataspaceId" />
+          <ScalarProperty Name="PartitionId" ColumnName="PartitionId" />
+          <ScalarProperty Name="System_AuthorizedAs_ConstId" ColumnName="System.AuthorizedAs_ConstId" />
+          <ScalarProperty Name="System_AuthorizedAs_TeamFoundationId" ColumnName="System.AuthorizedAs_TeamFoundationId" />
+          <ScalarProperty Name="System_AuthorizedAs" ColumnName="System.AuthorizedAs" />
+          <ScalarProperty Name="System_ChangedBy_ConstId" ColumnName="System.ChangedBy_ConstId" />
+          <ScalarProperty Name="System_ChangedBy_TeamFoundationId" ColumnName="System.ChangedBy_TeamFoundationId" />
+          <ScalarProperty Name="System_ChangedBy" ColumnName="System.ChangedBy" />
+          <ScalarProperty Name="System_CreatedBy_ConstId" ColumnName="System.CreatedBy_ConstId" />
+          <ScalarProperty Name="System_CreatedBy_TeamFoundationId" ColumnName="System.CreatedBy_TeamFoundationId" />
+          <ScalarProperty Name="System_CreatedBy" ColumnName="System.CreatedBy" />
+          <ScalarProperty Name="System_AssignedTo_ConstId" ColumnName="System.AssignedTo_ConstId" />
+          <ScalarProperty Name="System_AssignedTo_TeamFoundationId" ColumnName="System.AssignedTo_TeamFoundationId" />
+          <ScalarProperty Name="System_AssignedTo" ColumnName="System.AssignedTo" />
+          <ScalarProperty Name="System_RelatedLinkCount" ColumnName="System.RelatedLinkCount" />
+          <ScalarProperty Name="System_ExternalLinkCount" ColumnName="System.ExternalLinkCount" />
+          <ScalarProperty Name="System_HyperlinkCount" ColumnName="System.HyperlinkCount" />
+          <ScalarProperty Name="System_AttachedFileCount" ColumnName="System.AttachedFileCount" />
+          <ScalarProperty Name="System_IterationPath" ColumnName="System.IterationPath" />
+          <ScalarProperty Name="System_AreaPath" ColumnName="System.AreaPath" />
+          <ScalarProperty Name="System_AreaLevel1" ColumnName="System.AreaLevel1" />
+          <ScalarProperty Name="System_AreaLevel2" ColumnName="System.AreaLevel2" />
+          <ScalarProperty Name="System_AreaLevel3" ColumnName="System.AreaLevel3" />
+          <ScalarProperty Name="System_AreaLevel4" ColumnName="System.AreaLevel4" />
+          <ScalarProperty Name="System_AreaLevel5" ColumnName="System.AreaLevel5" />
+          <ScalarProperty Name="System_AreaLevel6" ColumnName="System.AreaLevel6" />
+          <ScalarProperty Name="System_AreaLevel7" ColumnName="System.AreaLevel7" />
+          <ScalarProperty Name="System_IterationLevel1" ColumnName="System.IterationLevel1" />
+          <ScalarProperty Name="System_IterationLevel2" ColumnName="System.IterationLevel2" />
+          <ScalarProperty Name="System_IterationLevel3" ColumnName="System.IterationLevel3" />
+          <ScalarProperty Name="System_IterationLevel4" ColumnName="System.IterationLevel4" />
+          <ScalarProperty Name="System_IterationLevel5" ColumnName="System.IterationLevel5" />
+          <ScalarProperty Name="System_IterationLevel6" ColumnName="System.IterationLevel6" />
+          <ScalarProperty Name="System_IterationLevel7" ColumnName="System.IterationLevel7" />
+          <ScalarProperty Name="System_NodeName" ColumnName="System.NodeName" />
+          <ScalarProperty Name="System_TeamProject" ColumnName="System.TeamProject" />
+          <ScalarProperty Name="System_IsDeleted" ColumnName="System.IsDeleted" />
+          <ScalarProperty Name="System_IterationId" ColumnName="System.IterationId" />
+          <ScalarProperty Name="System_AreaId" ColumnName="System.AreaId" />
+          <ScalarProperty Name="System_Watermark" ColumnName="System.Watermark" />
+          <ScalarProperty Name="System_PersonId" ColumnName="System.PersonId" />
+          <ScalarProperty Name="System_Reason" ColumnName="System.Reason" />
+          <ScalarProperty Name="System_State" ColumnName="System.State" />
+          <ScalarProperty Name="System_ChangedDate" ColumnName="System.ChangedDate" />
+          <ScalarProperty Name="System_CreatedDate" ColumnName="System.CreatedDate" />
+          <ScalarProperty Name="System_WorkItemType" ColumnName="System.WorkItemType" />
+          <ScalarProperty Name="System_RevisedDate" ColumnName="System.RevisedDate" />
+          <ScalarProperty Name="System_AuthorizedDate" ColumnName="System.AuthorizedDate" />
+          <ScalarProperty Name="System_Rev" ColumnName="System.Rev" />
+          <ScalarProperty Name="System_Id" ColumnName="System.Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

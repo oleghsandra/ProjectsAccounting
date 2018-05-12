@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProjectsAccountingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ProjectRates">
+          <Key>
+            <PropertyRef Name="ProjectRateId" />
+          </Key>
+          <Property Name="ProjectRateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ExternalRate" Type="float" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="255" />
+          <Property Name="PMCID" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="255" />
+          <Property Name="FullName" Type="varchar" MaxLength="255" />
+          <Property Name="PMCID" Type="varchar" MaxLength="255" />
+          <Property Name="InternalRate" Type="float" />
+        </EntityType>
+        <Association Name="FK__ProjectRa__Proje__4316F928">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="ProjectRates" Type="Self.ProjectRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="ProjectRates">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjectRa__UserI__4222D4EF">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="ProjectRates" Type="Self.ProjectRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="ProjectRates">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectsAccountingModelStoreContainer">
+          <EntitySet Name="ProjectRates" EntityType="Self.ProjectRates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ProjectRa__Proje__4316F928" Association="Self.FK__ProjectRa__Proje__4316F928">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectRates" EntitySet="ProjectRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjectRa__UserI__4222D4EF" Association="Self.FK__ProjectRa__UserI__4222D4EF">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ProjectRates" EntitySet="ProjectRates" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectsAccountingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ProjectsAccountingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ProjectRates" EntityType="ProjectsAccountingModel.ProjectRates" />
+          <EntitySet Name="Projects" EntityType="ProjectsAccountingModel.Projects" />
+          <EntitySet Name="Users" EntityType="ProjectsAccountingModel.Users" />
+          <AssociationSet Name="FK__ProjectRa__Proje__4316F928" Association="ProjectsAccountingModel.FK__ProjectRa__Proje__4316F928">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectRates" EntitySet="ProjectRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjectRa__UserI__4222D4EF" Association="ProjectsAccountingModel.FK__ProjectRa__UserI__4222D4EF">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ProjectRates" EntitySet="ProjectRates" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ProjectRates">
+          <Key>
+            <PropertyRef Name="ProjectRateId" />
+          </Key>
+          <Property Name="ProjectRateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ExternalRate" Type="Double" />
+          <NavigationProperty Name="Projects" Relationship="ProjectsAccountingModel.FK__ProjectRa__Proje__4316F928" FromRole="ProjectRates" ToRole="Projects" />
+          <NavigationProperty Name="Users" Relationship="ProjectsAccountingModel.FK__ProjectRa__UserI__4222D4EF" FromRole="ProjectRates" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PMCID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProjectRates" Relationship="ProjectsAccountingModel.FK__ProjectRa__Proje__4316F928" FromRole="Projects" ToRole="ProjectRates" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PMCID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="InternalRate" Type="Double" />
+          <NavigationProperty Name="ProjectRates" Relationship="ProjectsAccountingModel.FK__ProjectRa__UserI__4222D4EF" FromRole="Users" ToRole="ProjectRates" />
+        </EntityType>
+        <Association Name="FK__ProjectRa__Proje__4316F928">
+          <End Type="ProjectsAccountingModel.Projects" Role="Projects" Multiplicity="0..1" />
+          <End Type="ProjectsAccountingModel.ProjectRates" Role="ProjectRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="ProjectRates">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjectRa__UserI__4222D4EF">
+          <End Type="ProjectsAccountingModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="ProjectsAccountingModel.ProjectRates" Role="ProjectRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="ProjectRates">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectsAccountingModelStoreContainer" CdmEntityContainer="ProjectsAccountingEntities">
+          <EntitySetMapping Name="ProjectRates">
+            <EntityTypeMapping TypeName="ProjectsAccountingModel.ProjectRates">
+              <MappingFragment StoreEntitySet="ProjectRates">
+                <ScalarProperty Name="ExternalRate" ColumnName="ExternalRate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ProjectRateId" ColumnName="ProjectRateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ProjectsAccountingModel.Projects">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="PMCID" ColumnName="PMCID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ProjectsAccountingModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="InternalRate" ColumnName="InternalRate" />
+                <ScalarProperty Name="PMCID" ColumnName="PMCID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

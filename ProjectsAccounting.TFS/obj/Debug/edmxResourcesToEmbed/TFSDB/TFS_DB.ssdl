@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Tfs_DefaultCollectionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Tfs_DefaultCollection.dbo.ADObjectMemberships' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ADObjectMemberships">
+    <Key>
+      <PropertyRef Name="PartitionId" />
+      <PropertyRef Name="ObjectSID" />
+      <PropertyRef Name="MemberObjectSID" />
+    </Key>
+    <Property Name="PartitionId" Type="int" Nullable="false" />
+    <Property Name="ObjectSID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="MemberObjectSID" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Tfs_DefaultCollection.dbo.ADObjects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ADObjects">
+    <Key>
+      <PropertyRef Name="PartitionId" />
+      <PropertyRef Name="DomainName" />
+      <PropertyRef Name="ObjectCategory" />
+      <PropertyRef Name="ObjectSpecialType" />
+      <PropertyRef Name="LastSyncUTC" />
+      <PropertyRef Name="fDeleted" />
+      <PropertyRef Name="ObjectSID" />
+      <PropertyRef Name="SeqId" />
+      <PropertyRef Name="TeamFoundationId" />
+    </Key>
+    <Property Name="PartitionId" Type="int" Nullable="false" />
+    <Property Name="DomainName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="SamAccountName" Type="nvarchar" MaxLength="256" />
+    <Property Name="MailNickName" Type="nvarchar" MaxLength="256" />
+    <Property Name="ObjectCategory" Type="tinyint" Nullable="false" />
+    <Property Name="ObjectSpecialType" Type="tinyint" Nullable="false" />
+    <Property Name="LastSyncUTC" Type="datetime" Nullable="false" />
+    <Property Name="fDeleted" Type="bit" Nullable="false" />
+    <Property Name="ObjectSID" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="256" />
+    <Property Name="SeqId" Type="int" Nullable="false" />
+    <Property Name="TeamFoundationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ForceProcess" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Tfs_DefaultCollection.dbo.tbl_Iteration' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Iteration">
+    <Key>
+      <PropertyRef Name="PartitionId" />
+      <PropertyRef Name="IterationId" />
+      <PropertyRef Name="ProjectUri" />
+      <PropertyRef Name="DataspaceId" />
+    </Key>
+    <Property Name="PartitionId" Type="int" Nullable="false" />
+    <Property Name="IterationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IterationUri" Type="nvarchar" MaxLength="256" />
+    <Property Name="Iteration" Type="nvarchar" MaxLength="4000" />
+    <Property Name="ProjectUri" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="DataspaceId" Type="int" Nullable="false" />
+    <Property Name="SequenceId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Tfs_DefaultCollection.dbo.tbl_Project' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Project">
+    <Key>
+      <PropertyRef Name="PartitionId" />
+      <PropertyRef Name="ProjectId" />
+      <PropertyRef Name="DataspaceId" />
+      <PropertyRef Name="ProjectUri" />
+      <PropertyRef Name="ProjectName" />
+      <PropertyRef Name="SequenceId" />
+      <PropertyRef Name="IsDeleted" />
+      <PropertyRef Name="IsResolutionStateCustomized" />
+      <PropertyRef Name="IsFailureTypeCustomized" />
+      <PropertyRef Name="MigrationState" />
+    </Key>
+    <Property Name="PartitionId" Type="int" Nullable="false" />
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataspaceId" Type="int" Nullable="false" />
+    <Property Name="ProjectUri" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="SequenceId" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsResolutionStateCustomized" Type="bit" Nullable="false" />
+    <Property Name="IsFailureTypeCustomized" Type="bit" Nullable="false" />
+    <Property Name="MigrationState" Type="int" Nullable="false" />
+    <Property Name="MigrationError" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Tfs_DefaultCollection.dbo.WorkItemLongTexts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="WorkItemLongTexts">
+    <Key>
+      <PropertyRef Name="PartitionId" />
+      <PropertyRef Name="DataspaceId" />
+      <PropertyRef Name="AddedDate" />
+      <PropertyRef Name="FldID" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Words" />
+      <PropertyRef Name="Changed Order" />
+      <PropertyRef Name="Rev" />
+      <PropertyRef Name="fHtml" />
+      <PropertyRef Name="WordsDocumentType" />
+      <PropertyRef Name="TextID" />
+      <PropertyRef Name="EndDate" />
+      <PropertyRef Name="PartitionTextID" />
+    </Key>
+    <Property Name="PartitionId" Type="int" Nullable="false" />
+    <Property Name="DataspaceId" Type="int" Nullable="false" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="FldID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Words" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Changed Order" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Rev" Type="int" Nullable="false" />
+    <Property Name="fHtml" Type="bit" Nullable="false" />
+    <Property Name="IndexedWords" Type="varbinary(max)" StoreGeneratedPattern="Computed" />
+    <Property Name="WordsDocumentType" Type="varchar" MaxLength="4" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="TextID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="PartitionTextID" Type="bigint" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Tfs_DefaultCollection.dbo.vw_denorm_WorkItemCoreLatest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_denorm_WorkItemCoreLatest">
+    <Key>
+      <PropertyRef Name="System.Id" />
+      <PropertyRef Name="System.Rev" />
+      <PropertyRef Name="System.AuthorizedDate" />
+      <PropertyRef Name="System.RevisedDate" />
+      <PropertyRef Name="System.WorkItemType" />
+      <PropertyRef Name="System.CreatedDate" />
+      <PropertyRef Name="System.ChangedDate" />
+      <PropertyRef Name="System.PersonId" />
+      <PropertyRef Name="System.Watermark" />
+      <PropertyRef Name="System.IsDeleted" />
+      <PropertyRef Name="System.AttachedFileCount" />
+      <PropertyRef Name="System.HyperlinkCount" />
+      <PropertyRef Name="System.ExternalLinkCount" />
+      <PropertyRef Name="System.RelatedLinkCount" />
+      <PropertyRef Name="PartitionId" />
+      <PropertyRef Name="DataspaceId" />
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Rev" />
+      <PropertyRef Name="AuthorizedDate" />
+      <PropertyRef Name="RevisedDate" />
+      <PropertyRef Name="AuthorizedAs" />
+      <PropertyRef Name="WorkItemType" />
+      <PropertyRef Name="AreaPath" />
+      <PropertyRef Name="IterationPath" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="ChangedBy" />
+      <PropertyRef Name="ChangedDate" />
+      <PropertyRef Name="Watermark" />
+      <PropertyRef Name="IsDeleted" />
+    </Key>
+    <Property Name="System.Id" Type="int" Nullable="false" />
+    <Property Name="System.Rev" Type="int" Nullable="false" />
+    <Property Name="System.AuthorizedDate" Type="datetime" Nullable="false" />
+    <Property Name="System.RevisedDate" Type="datetime" Nullable="false" />
+    <Property Name="System.WorkItemType" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="System.CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="System.ChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="System.State" Type="nvarchar" MaxLength="256" />
+    <Property Name="System.Reason" Type="nvarchar" MaxLength="256" />
+    <Property Name="System.PersonId" Type="int" Nullable="false" />
+    <Property Name="System.Watermark" Type="int" Nullable="false" />
+    <Property Name="System.AreaId" Type="int" />
+    <Property Name="System.IterationId" Type="int" />
+    <Property Name="System.IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="System.TeamProject" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.NodeName" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.IterationLevel7" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.IterationLevel6" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.IterationLevel5" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.IterationLevel4" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.IterationLevel3" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.IterationLevel2" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.IterationLevel1" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.AreaLevel7" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.AreaLevel6" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.AreaLevel5" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.AreaLevel4" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.AreaLevel3" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.AreaLevel2" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.AreaLevel1" Type="nvarchar" MaxLength="255" />
+    <Property Name="System.AreaPath" Type="nvarchar" MaxLength="4000" />
+    <Property Name="System.IterationPath" Type="nvarchar" MaxLength="4000" />
+    <Property Name="System.AttachedFileCount" Type="int" Nullable="false" />
+    <Property Name="System.HyperlinkCount" Type="int" Nullable="false" />
+    <Property Name="System.ExternalLinkCount" Type="int" Nullable="false" />
+    <Property Name="System.RelatedLinkCount" Type="int" Nullable="false" />
+    <Property Name="System.AssignedTo" Type="nvarchar" MaxLength="256" />
+    <Property Name="System.AssignedTo_TeamFoundationId" Type="uniqueidentifier" />
+    <Property Name="System.AssignedTo_ConstId" Type="int" />
+    <Property Name="System.CreatedBy" Type="nvarchar" MaxLength="256" />
+    <Property Name="System.CreatedBy_TeamFoundationId" Type="uniqueidentifier" />
+    <Property Name="System.CreatedBy_ConstId" Type="int" />
+    <Property Name="System.ChangedBy" Type="nvarchar" MaxLength="256" />
+    <Property Name="System.ChangedBy_TeamFoundationId" Type="uniqueidentifier" />
+    <Property Name="System.ChangedBy_ConstId" Type="int" />
+    <Property Name="System.AuthorizedAs" Type="nvarchar" MaxLength="256" />
+    <Property Name="System.AuthorizedAs_TeamFoundationId" Type="uniqueidentifier" />
+    <Property Name="System.AuthorizedAs_ConstId" Type="int" />
+    <Property Name="PartitionId" Type="int" Nullable="false" />
+    <Property Name="DataspaceId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Rev" Type="int" Nullable="false" />
+    <Property Name="AuthorizedDate" Type="datetime" Nullable="false" />
+    <Property Name="RevisedDate" Type="datetime" Nullable="false" />
+    <Property Name="AuthorizedAs" Type="int" Nullable="false" />
+    <Property Name="WorkItemType" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="AreaPath" Type="varbinary" MaxLength="60" Nullable="false" />
+    <Property Name="AreaId" Type="int" />
+    <Property Name="IterationPath" Type="varbinary" MaxLength="60" Nullable="false" />
+    <Property Name="IterationId" Type="int" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ChangedBy" Type="int" Nullable="false" />
+    <Property Name="ChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="State" Type="nvarchar" MaxLength="256" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="256" />
+    <Property Name="AssignedTo" Type="int" />
+    <Property Name="Watermark" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Tfs_DefaultCollectionModelStoreContainer">
+    <EntitySet Name="ADObjectMemberships" EntityType="Self.ADObjectMemberships" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ADObjectMemberships].[PartitionId] AS [PartitionId], 
+[ADObjectMemberships].[ObjectSID] AS [ObjectSID], 
+[ADObjectMemberships].[MemberObjectSID] AS [MemberObjectSID]
+FROM [dbo].[ADObjectMemberships] AS [ADObjectMemberships]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ADObjects" EntityType="Self.ADObjects" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ADObjects].[PartitionId] AS [PartitionId], 
+[ADObjects].[DomainName] AS [DomainName], 
+[ADObjects].[SamAccountName] AS [SamAccountName], 
+[ADObjects].[MailNickName] AS [MailNickName], 
+[ADObjects].[ObjectCategory] AS [ObjectCategory], 
+[ADObjects].[ObjectSpecialType] AS [ObjectSpecialType], 
+[ADObjects].[LastSyncUTC] AS [LastSyncUTC], 
+[ADObjects].[fDeleted] AS [fDeleted], 
+[ADObjects].[ObjectSID] AS [ObjectSID], 
+[ADObjects].[DisplayName] AS [DisplayName], 
+[ADObjects].[SeqId] AS [SeqId], 
+[ADObjects].[TeamFoundationId] AS [TeamFoundationId], 
+[ADObjects].[ForceProcess] AS [ForceProcess]
+FROM [dbo].[ADObjects] AS [ADObjects]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Iteration" EntityType="Self.tbl_Iteration" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Iteration].[PartitionId] AS [PartitionId], 
+[tbl_Iteration].[IterationId] AS [IterationId], 
+[tbl_Iteration].[IterationUri] AS [IterationUri], 
+[tbl_Iteration].[Iteration] AS [Iteration], 
+[tbl_Iteration].[ProjectUri] AS [ProjectUri], 
+[tbl_Iteration].[DataspaceId] AS [DataspaceId], 
+[tbl_Iteration].[SequenceId] AS [SequenceId]
+FROM [dbo].[tbl_Iteration] AS [tbl_Iteration]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Project" EntityType="Self.tbl_Project" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Project].[PartitionId] AS [PartitionId], 
+[tbl_Project].[ProjectId] AS [ProjectId], 
+[tbl_Project].[DataspaceId] AS [DataspaceId], 
+[tbl_Project].[ProjectUri] AS [ProjectUri], 
+[tbl_Project].[ProjectName] AS [ProjectName], 
+[tbl_Project].[SequenceId] AS [SequenceId], 
+[tbl_Project].[IsDeleted] AS [IsDeleted], 
+[tbl_Project].[IsResolutionStateCustomized] AS [IsResolutionStateCustomized], 
+[tbl_Project].[IsFailureTypeCustomized] AS [IsFailureTypeCustomized], 
+[tbl_Project].[MigrationState] AS [MigrationState], 
+[tbl_Project].[MigrationError] AS [MigrationError]
+FROM [dbo].[tbl_Project] AS [tbl_Project]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="WorkItemLongTexts" EntityType="Self.WorkItemLongTexts" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[WorkItemLongTexts].[PartitionId] AS [PartitionId], 
+[WorkItemLongTexts].[DataspaceId] AS [DataspaceId], 
+[WorkItemLongTexts].[AddedDate] AS [AddedDate], 
+[WorkItemLongTexts].[FldID] AS [FldID], 
+[WorkItemLongTexts].[ID] AS [ID], 
+[WorkItemLongTexts].[Words] AS [Words], 
+[WorkItemLongTexts].[Changed Order] AS [Changed Order], 
+[WorkItemLongTexts].[Rev] AS [Rev], 
+[WorkItemLongTexts].[fHtml] AS [fHtml], 
+[WorkItemLongTexts].[IndexedWords] AS [IndexedWords], 
+[WorkItemLongTexts].[WordsDocumentType] AS [WordsDocumentType], 
+[WorkItemLongTexts].[TextID] AS [TextID], 
+[WorkItemLongTexts].[EndDate] AS [EndDate], 
+[WorkItemLongTexts].[PartitionTextID] AS [PartitionTextID]
+FROM [dbo].[WorkItemLongTexts] AS [WorkItemLongTexts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_denorm_WorkItemCoreLatest" EntityType="Self.vw_denorm_WorkItemCoreLatest" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[vw_denorm_WorkItemCoreLatest].[System.Id] AS [System.Id], 
+[vw_denorm_WorkItemCoreLatest].[System.Rev] AS [System.Rev], 
+[vw_denorm_WorkItemCoreLatest].[System.AuthorizedDate] AS [System.AuthorizedDate], 
+[vw_denorm_WorkItemCoreLatest].[System.RevisedDate] AS [System.RevisedDate], 
+[vw_denorm_WorkItemCoreLatest].[System.WorkItemType] AS [System.WorkItemType], 
+[vw_denorm_WorkItemCoreLatest].[System.CreatedDate] AS [System.CreatedDate], 
+[vw_denorm_WorkItemCoreLatest].[System.ChangedDate] AS [System.ChangedDate], 
+[vw_denorm_WorkItemCoreLatest].[System.State] AS [System.State], 
+[vw_denorm_WorkItemCoreLatest].[System.Reason] AS [System.Reason], 
+[vw_denorm_WorkItemCoreLatest].[System.PersonId] AS [System.PersonId], 
+[vw_denorm_WorkItemCoreLatest].[System.Watermark] AS [System.Watermark], 
+[vw_denorm_WorkItemCoreLatest].[System.AreaId] AS [System.AreaId], 
+[vw_denorm_WorkItemCoreLatest].[System.IterationId] AS [System.IterationId], 
+[vw_denorm_WorkItemCoreLatest].[System.IsDeleted] AS [System.IsDeleted], 
+[vw_denorm_WorkItemCoreLatest].[System.TeamProject] AS [System.TeamProject], 
+[vw_denorm_WorkItemCoreLatest].[System.NodeName] AS [System.NodeName], 
+[vw_denorm_WorkItemCoreLatest].[System.IterationLevel7] AS [System.IterationLevel7], 
+[vw_denorm_WorkItemCoreLatest].[System.IterationLevel6] AS [System.IterationLevel6], 
+[vw_denorm_WorkItemCoreLatest].[System.IterationLevel5] AS [System.IterationLevel5], 
+[vw_denorm_WorkItemCoreLatest].[System.IterationLevel4] AS [System.IterationLevel4], 
+[vw_denorm_WorkItemCoreLatest].[System.IterationLevel3] AS [System.IterationLevel3], 
+[vw_denorm_WorkItemCoreLatest].[System.IterationLevel2] AS [System.IterationLevel2], 
+[vw_denorm_WorkItemCoreLatest].[System.IterationLevel1] AS [System.IterationLevel1], 
+[vw_denorm_WorkItemCoreLatest].[System.AreaLevel7] AS [System.AreaLevel7], 
+[vw_denorm_WorkItemCoreLatest].[System.AreaLevel6] AS [System.AreaLevel6], 
+[vw_denorm_WorkItemCoreLatest].[System.AreaLevel5] AS [System.AreaLevel5], 
+[vw_denorm_WorkItemCoreLatest].[System.AreaLevel4] AS [System.AreaLevel4], 
+[vw_denorm_WorkItemCoreLatest].[System.AreaLevel3] AS [System.AreaLevel3], 
+[vw_denorm_WorkItemCoreLatest].[System.AreaLevel2] AS [System.AreaLevel2], 
+[vw_denorm_WorkItemCoreLatest].[System.AreaLevel1] AS [System.AreaLevel1], 
+[vw_denorm_WorkItemCoreLatest].[System.AreaPath] AS [System.AreaPath], 
+[vw_denorm_WorkItemCoreLatest].[System.IterationPath] AS [System.IterationPath], 
+[vw_denorm_WorkItemCoreLatest].[System.AttachedFileCount] AS [System.AttachedFileCount], 
+[vw_denorm_WorkItemCoreLatest].[System.HyperlinkCount] AS [System.HyperlinkCount], 
+[vw_denorm_WorkItemCoreLatest].[System.ExternalLinkCount] AS [System.ExternalLinkCount], 
+[vw_denorm_WorkItemCoreLatest].[System.RelatedLinkCount] AS [System.RelatedLinkCount], 
+[vw_denorm_WorkItemCoreLatest].[System.AssignedTo] AS [System.AssignedTo], 
+[vw_denorm_WorkItemCoreLatest].[System.AssignedTo_TeamFoundationId] AS [System.AssignedTo_TeamFoundationId], 
+[vw_denorm_WorkItemCoreLatest].[System.AssignedTo_ConstId] AS [System.AssignedTo_ConstId], 
+[vw_denorm_WorkItemCoreLatest].[System.CreatedBy] AS [System.CreatedBy], 
+[vw_denorm_WorkItemCoreLatest].[System.CreatedBy_TeamFoundationId] AS [System.CreatedBy_TeamFoundationId], 
+[vw_denorm_WorkItemCoreLatest].[System.CreatedBy_ConstId] AS [System.CreatedBy_ConstId], 
+[vw_denorm_WorkItemCoreLatest].[System.ChangedBy] AS [System.ChangedBy], 
+[vw_denorm_WorkItemCoreLatest].[System.ChangedBy_TeamFoundationId] AS [System.ChangedBy_TeamFoundationId], 
+[vw_denorm_WorkItemCoreLatest].[System.ChangedBy_ConstId] AS [System.ChangedBy_ConstId], 
+[vw_denorm_WorkItemCoreLatest].[System.AuthorizedAs] AS [System.AuthorizedAs], 
+[vw_denorm_WorkItemCoreLatest].[System.AuthorizedAs_TeamFoundationId] AS [System.AuthorizedAs_TeamFoundationId], 
+[vw_denorm_WorkItemCoreLatest].[System.AuthorizedAs_ConstId] AS [System.AuthorizedAs_ConstId], 
+[vw_denorm_WorkItemCoreLatest].[PartitionId] AS [PartitionId], 
+[vw_denorm_WorkItemCoreLatest].[DataspaceId] AS [DataspaceId], 
+[vw_denorm_WorkItemCoreLatest].[Id] AS [Id], 
+[vw_denorm_WorkItemCoreLatest].[Rev] AS [Rev], 
+[vw_denorm_WorkItemCoreLatest].[AuthorizedDate] AS [AuthorizedDate], 
+[vw_denorm_WorkItemCoreLatest].[RevisedDate] AS [RevisedDate], 
+[vw_denorm_WorkItemCoreLatest].[AuthorizedAs] AS [AuthorizedAs], 
+[vw_denorm_WorkItemCoreLatest].[WorkItemType] AS [WorkItemType], 
+[vw_denorm_WorkItemCoreLatest].[AreaPath] AS [AreaPath], 
+[vw_denorm_WorkItemCoreLatest].[AreaId] AS [AreaId], 
+[vw_denorm_WorkItemCoreLatest].[IterationPath] AS [IterationPath], 
+[vw_denorm_WorkItemCoreLatest].[IterationId] AS [IterationId], 
+[vw_denorm_WorkItemCoreLatest].[CreatedBy] AS [CreatedBy], 
+[vw_denorm_WorkItemCoreLatest].[CreatedDate] AS [CreatedDate], 
+[vw_denorm_WorkItemCoreLatest].[ChangedBy] AS [ChangedBy], 
+[vw_denorm_WorkItemCoreLatest].[ChangedDate] AS [ChangedDate], 
+[vw_denorm_WorkItemCoreLatest].[State] AS [State], 
+[vw_denorm_WorkItemCoreLatest].[Reason] AS [Reason], 
+[vw_denorm_WorkItemCoreLatest].[AssignedTo] AS [AssignedTo], 
+[vw_denorm_WorkItemCoreLatest].[Watermark] AS [Watermark], 
+[vw_denorm_WorkItemCoreLatest].[IsDeleted] AS [IsDeleted]
+FROM [dbo].[vw_denorm_WorkItemCoreLatest] AS [vw_denorm_WorkItemCoreLatest]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

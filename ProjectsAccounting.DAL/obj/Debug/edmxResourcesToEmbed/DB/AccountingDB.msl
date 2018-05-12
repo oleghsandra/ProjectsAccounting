@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjectsAccountingModelStoreContainer" CdmEntityContainer="ProjectsAccountingEntities">
+    <EntitySetMapping Name="ProjectRates">
+      <EntityTypeMapping TypeName="ProjectsAccountingModel.ProjectRates">
+        <MappingFragment StoreEntitySet="ProjectRates">
+          <ScalarProperty Name="ExternalRate" ColumnName="ExternalRate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ProjectRateId" ColumnName="ProjectRateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="ProjectsAccountingModel.Projects">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="PMCID" ColumnName="PMCID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ProjectsAccountingModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="InternalRate" ColumnName="InternalRate" />
+          <ScalarProperty Name="PMCID" ColumnName="PMCID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
