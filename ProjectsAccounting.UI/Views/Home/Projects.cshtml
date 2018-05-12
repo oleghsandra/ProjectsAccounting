@@ -1,7 +1,44 @@
-﻿@{
+﻿@model List<ProjectsAccounting.Common.Models.ProjectModel>
+
+@{
     ViewBag.Title = "Projects";
 }
 
-<div class="jumbotron">
-    <h1>Here will be projects with user rates</h1>
+@section scripts {
+    @Scripts.Render("~/bundles/projects")
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <fieldset class="fieldset-details">
+                <legend>Projects</legend>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="projectsTable">
+                        <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Users</th>
+                                <th>Iterations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Any())
+                            {
+                                foreach (var project in Model)
+                                {
+                                    <tr data-project-id="@project.ProjectId">
+                                        <td>@project.ProjectName</td>
+                                        <td>Show users</td>
+                                        <td>Show iterations</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-info">Synchronize</button>
+            </fieldset>
+        </div>
+    </div>
 </div>

@@ -35,6 +35,7 @@ namespace ProjectsAccounting.TFS.Repositories
 
                Name = i.nameField == null ? "" : i.nameField.Words,
                Description = i.reportedField == null ? "" : i.reportedField.Words,
+               HoursReported = i.reportedField == null ? 0.0 : (double.TryParse(i.reportedField.Words, out double value) ? value : 0)
             }).ToList();
         }
     }

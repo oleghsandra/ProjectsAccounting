@@ -1,12 +1,19 @@
 ﻿using ProjectsAccounting.Common.Models;
 using ProjectsAccounting.TFS.Repositories;
+using ProjectsAccounting.UI.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace ProjectsAccounting.UI.Controllers
 {
     public class HomeController : Controller
     {
+        public HomeController()
+        {
+
+        }
+
         public ActionResult Index()
         {
             var r = new TFSProjectsRepository();
@@ -33,12 +40,29 @@ namespace ProjectsAccounting.UI.Controllers
 
         public ActionResult Projects()
         {
-            return View();
+            var projectsRepository = new TFSProjectsRepository();
+            var projects = projectsRepository.GetAll();
+            
+            return View(projects);
         }
 
         public ActionResult Users()
         {
-            return View();
+            var usersRepository = new TFSUsersRepository();
+            var users = usersRepository.GetAll();
+
+            var projectsRepository = new TFSProjectsRepository();
+            var projects = projectsRepository.GetAll();
+
+            var model = new RatesViewModel()
+            {
+                Users = users,
+                ProjectRates = new List<ProjectRateModel>() { new ProjectRateModel() { ProjectName ="Test", UserName="Oleg", ExternalRate=2.33 } }, //ToDo,
+                UsersOptions = users.Select(u => new SelectListItem { Text = u.UserName, Value = u.UserId.ToString() }).ToList(),
+                ProjectsOptions = projects.Select(u => new SelectListItem { Text = u.ProjectName, Value = u.ProjectId.ToString() }).ToList()
+            };
+
+            return View(model);
         }
     }
 }

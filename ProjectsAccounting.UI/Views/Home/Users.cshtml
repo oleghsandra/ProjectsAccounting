@@ -1,8 +1,83 @@
-﻿@{
-    ViewBag.Title = "Users";
+﻿@model ProjectsAccounting.UI.Models.RatesViewModel
+
+@{
+    ViewBag.Title = "Rates";
 }
 
+@section scripts {
+    @Scripts.Render("~/bundles/users")
+}
 
-<div class="jumbotron">
-    <h1>Here will be users with internal rates</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <fieldset class="fieldset-details">
+                <legend>Internal Rates</legend>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Full Name</th>
+                                <th>Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Users != null && Model.Users.Any())
+                            {
+                                foreach (var user in Model.Users)
+                                {
+                                    <tr data-project-id="@user.UserId">
+                                        <td>@user.UserName</td>
+                                        <td>@user.FullName</td>
+                                        <td class="td-with-input"><input class="form-control table-input" value="@user.InternalRate.ToString("0.00")" /></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-info">Synchronize</button>
+            </fieldset>
+        </div>
+        <div class="col-md-7">
+            <fieldset class="fieldset-details">
+                <legend>External Rates</legend>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="externalRatesTable">
+                        <thead>
+                            <tr>
+                                <th>Project</th>
+                                <th>User</th>
+                                <th>Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.ProjectRates != null && Model.ProjectRates.Any())
+                            {
+                                foreach (var projectRate in Model.ProjectRates)
+                                {
+                                    <tr data-project-id="@projectRate.UserId">
+                                        <td>@projectRate.ProjectName</td>
+                                        <td>@projectRate.UserName</td>
+                                        <td class="td-with-input"><input class="form-control table-input" value="@projectRate.ExternalRate.ToString("0.00")" /></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>
+                                    <button class="btn btn-info">Save</button>
+                                    @Html.DropDownList("projectSelector", Model.ProjectsOptions, new { id = "projectSelector", @class = "form-control" })
+                                </th>
+                                <th>@Html.DropDownList("userSelector", Model.UsersOptions, new { id = "userSelector", @class = "form-control" })</th>
+                                <th><input class="form-control" value="0,00" /></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </fieldset>
+        </div>
+    </div>
 </div>

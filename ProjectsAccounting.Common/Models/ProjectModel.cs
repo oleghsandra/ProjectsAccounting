@@ -13,7 +13,7 @@ namespace ProjectsAccounting.Common.Models
         public string ProjectName { get; set; }
 
         public string PMCID { get; set; }
-        
+
         public virtual List<ProjectRateModel> ProjectRates { get; set; }
     }
 }

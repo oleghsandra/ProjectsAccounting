@@ -22,3 +22,23 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.td-with-input {
+    width: 100px;
+    padding: 4px 10px !important;
+}
+
+.table-input {
+    width: 100px;
+    text-align: right;
+    height: 30px;
+}
+
+.as-row-table-height {
+    height: 30px;
+}
+
+#projectSelector{
+    width: 80%;
+    display: inline-block;
+}
