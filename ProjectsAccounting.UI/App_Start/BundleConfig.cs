@@ -22,7 +22,8 @@ namespace ProjectsAccounting.UI
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery.dataTables.js"));
+                        "~/Scripts/jquery.dataTables.js",
+                        "~/Scripts/print.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
