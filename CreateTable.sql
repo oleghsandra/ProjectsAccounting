@@ -60,7 +60,11 @@ CREATE TABLE Invoices (
 	Fax varchar(255),
 	Phone varchar(255),
 	TaxRate float,
-    OfficeRate varchar(255),
+    OfficeRate float,
+	CustomerName varchar(255),
+	CustomerAddress varchar(255),
+	CustomerEmail varchar(255),
+	CustomerPhone varchar(255),
 
 	FOREIGN KEY (ProjectId) REFERENCES Projects(ProjectId)
 );
@@ -69,9 +73,10 @@ CREATE TABLE InvoicedTasks (
 	InvoicedTaskId int identity(1, 1) primary key,
 	InvoiceId int,
 	UserId int,
+	UserExternalRate float,
+	UserInternalRate float,
 	ReportedHours float,
 	TaskName varchar(255)
 
-	FOREIGN KEY (InvoiceId) REFERENCES Invoices(InvoiceId),
-	FOREIGN KEY (UserId) REFERENCES Users(UserId),
+	FOREIGN KEY (InvoiceId) REFERENCES Invoices(InvoiceId)
 );

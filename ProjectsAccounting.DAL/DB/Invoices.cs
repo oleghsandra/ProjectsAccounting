@@ -31,10 +31,14 @@ namespace ProjectsAccounting.DAL.DB
         public string Fax { get; set; }
         public string Phone { get; set; }
         public Nullable<double> TaxRate { get; set; }
-        public string OfficeRate { get; set; }
+        public Nullable<double> OfficeRate { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerAddress { get; set; }
+        public string CustomerEmail { get; set; }
+        public string CustomerPhone { get; set; }
     
+        public virtual Projects Projects { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoicedTasks> InvoicedTasks { get; set; }
-        public virtual Projects Projects { get; set; }
     }
 }

@@ -9,6 +9,11 @@ namespace ProjectsAccounting.DAL.Repositories
 {
     public class ProjectRepository : RepositoryBase<ProjectsAccountingEntities>, IProjectRepository
     {
+        public ProjectModel Get(int projectId)
+        {
+            return ProjectMapper.ToProjectModel(this.Context.Projects.FirstOrDefault(p => p.ProjectId == projectId));
+        }
+
         public List<ProjectModel> GetAll()
         {
             return this.Context.Projects.ToList()

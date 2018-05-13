@@ -6,28 +6,26 @@ using System.Web.Mvc;
 
 namespace ProjectsAccounting.UI.Controllers
 {
-    public class InvoicingController : Controller
+    public class InvoicesController : Controller
     {
-        public InvoicingController(
-            IProjectsProvider projectsProvider,
-            ICompanyInfoProvider companyInfoProvider,
-            IUsersProvider usersProvider)
+        public InvoicesController(IInvoicesProvider invoicesProvider)
         {
-            this._projectsProvider = projectsProvider;
-            this._companyInfoProvider = companyInfoProvider;
-            this._usersProvider = usersProvider;
+            this._invoicesProvider = invoicesProvider;
         }
 
-        private IProjectsProvider _projectsProvider { get; set; }
-
-        private ICompanyInfoProvider _companyInfoProvider { get; set; }
-
-        private IUsersProvider _usersProvider { get; set; }
+        private IInvoicesProvider _invoicesProvider { get; set; }
 
         public ActionResult Index()
         {
+            var invoices = this._invoicesProvider.GetAll();
+            return View(invoices);
+        }
 
-            return View();
+        [HttpPost]
+        public ActionResult LoadInvoice(int invoiceId)
+        {
+            var invoice = this._invoicesProvider.Get(invoiceId);
+            return PartialView("Invoice", invoice);
         }
     }
 }

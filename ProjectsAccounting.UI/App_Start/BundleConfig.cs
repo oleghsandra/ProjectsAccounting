@@ -9,7 +9,7 @@ namespace ProjectsAccounting.UI
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/invoices").Include(
-                        "~/Scripts/Site/invoices"));
+                        "~/Scripts/Site/invoices.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/invoicing").Include(
                         "~/Scripts/Site/invoicing.js"));

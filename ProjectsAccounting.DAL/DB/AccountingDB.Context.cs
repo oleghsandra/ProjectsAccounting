@@ -27,9 +27,9 @@ namespace ProjectsAccounting.DAL.DB
     
         public virtual DbSet<ProjectRates> ProjectRates { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<InvoicedTasks> InvoicedTasks { get; set; }
         public virtual DbSet<CompanyInfo> CompanyInfo { get; set; }
         public virtual DbSet<Projects> Projects { get; set; }
         public virtual DbSet<Invoices> Invoices { get; set; }
+        public virtual DbSet<InvoicedTasks> InvoicedTasks { get; set; }
     }
 }

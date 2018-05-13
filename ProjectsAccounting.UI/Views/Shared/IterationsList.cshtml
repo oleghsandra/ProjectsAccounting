@@ -1,0 +1,3 @@
+﻿@model List<SelectListItem>
+
+@Html.DropDownList("IterationId", Model, new { id = "IterationId", @class = "form-control", data_request_url = Url.Action("LoadTasks", "Invoicing") })

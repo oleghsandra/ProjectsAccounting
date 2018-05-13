@@ -12,6 +12,8 @@ namespace ProjectsAccounting.DAL.Mappers
                 InvoicedTaskId = dbModel.InvoicedTaskId,
                 InvoiceId = dbModel.InvoiceId ?? 0,
                 UserId = dbModel.UserId ?? 0,
+                UserInternalRate = dbModel.UserInternalRate ?? 0,
+                UserExternalRate = dbModel.UserExternalRate ?? 0,
                 ReportedHours = dbModel.ReportedHours ?? 0,
                 TaskName = dbModel.TaskName,
             };
@@ -24,6 +26,8 @@ namespace ProjectsAccounting.DAL.Mappers
                 InvoicedTaskId = model.InvoicedTaskId,
                 InvoiceId = model.InvoiceId,
                 UserId = model.UserId,
+                UserInternalRate = model.UserInternalRate,
+                UserExternalRate = model.UserExternalRate,
                 ReportedHours = model.ReportedHours,
                 TaskName = model.TaskName,
             };

@@ -19,6 +19,11 @@ namespace ProjectsAccountingBL.Providers.Implementation
 
         private ITFSProjectsRepository _tfsProjectsRepository { get; set; }
 
+        public ProjectModel Get(int projectId)
+        {
+            return this._projectRepository.Get(projectId);
+        }
+
         public List<ProjectModel> GetAll()
         {
             return this._projectRepository.GetAll();

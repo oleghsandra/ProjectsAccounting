@@ -18,7 +18,6 @@ namespace ProjectsAccounting.DAL.DB
         public Users()
         {
             this.ProjectRates = new HashSet<ProjectRates>();
-            this.InvoicedTasks = new HashSet<InvoicedTasks>();
         }
     
         public int UserId { get; set; }
@@ -29,7 +28,5 @@ namespace ProjectsAccounting.DAL.DB
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProjectRates> ProjectRates { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoicedTasks> InvoicedTasks { get; set; }
     }
 }

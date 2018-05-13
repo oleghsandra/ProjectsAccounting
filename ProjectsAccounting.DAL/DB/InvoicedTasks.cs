@@ -17,10 +17,11 @@ namespace ProjectsAccounting.DAL.DB
         public int InvoicedTaskId { get; set; }
         public Nullable<int> InvoiceId { get; set; }
         public Nullable<int> UserId { get; set; }
+        public Nullable<double> UserExternalRate { get; set; }
+        public Nullable<double> UserInternalRate { get; set; }
         public Nullable<double> ReportedHours { get; set; }
         public string TaskName { get; set; }
     
-        public virtual Users Users { get; set; }
         public virtual Invoices Invoices { get; set; }
     }
 }

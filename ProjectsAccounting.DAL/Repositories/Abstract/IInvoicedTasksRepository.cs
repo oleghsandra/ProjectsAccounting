@@ -8,5 +8,7 @@ namespace ProjectsAccounting.DAL.Repositories
         List<InvoicedTaskModel> GetAll(int invoiceId);
 
         void Insert(InvoicedTaskModel model);
+
+        void InsertRange(List<InvoicedTaskModel> models);
     }
 }

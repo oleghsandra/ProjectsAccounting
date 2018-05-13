@@ -37,6 +37,7 @@ namespace ProjectsAccounting.UI
             container.RegisterType<ITasksProvider, TasksProvider>();
             container.RegisterType<IUsersProvider, UsersProvider>();
             container.RegisterType<ICompanyInfoProvider, CompanyInfoProvider>();
+            container.RegisterType<IInvoicesProvider, InvoicesProvider>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

@@ -1,13 +1,13 @@
 ﻿using ProjectsAccounting.Common.Models;
 using System.Collections.Generic;
 
-namespace ProjectsAccounting.DAL.Repositories
+namespace ProjectsAccountingBL.Providers.Abstract
 {
-    public interface IInvoicesRepository
+    public interface IInvoicesProvider
     {
         List<InvoiceModel> GetAll();
 
-        void Insert(InvoiceModel model);
+        void SaveInvoice(InvoiceModel invoiceModel);
 
         InvoiceModel Get(int invoiceId);
     }

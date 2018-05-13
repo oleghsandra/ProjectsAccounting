@@ -55,3 +55,11 @@ textarea {
     color: red;
     font-weight: bold;
 }
+
+.text-bold {
+    font-weight: bold;
+}
+
+.top-buffer {
+    margin-top: 5px;
+}

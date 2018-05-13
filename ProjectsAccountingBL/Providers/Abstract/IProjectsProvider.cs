@@ -5,6 +5,8 @@ namespace ProjectsAccountingBL.Providers.Abstract
 {
     public interface IProjectsProvider
     {
+        ProjectModel Get(int projectId);
+
         List<ProjectModel> GetAll();
 
         void Synhronize();

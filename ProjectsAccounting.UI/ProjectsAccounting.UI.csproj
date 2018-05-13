@@ -20,8 +20,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -209,6 +209,7 @@
     <Content Include="Content\Datatables\jquery.dataTables.min.css" />
     <Content Include="Content\Datatables\jquery.dataTables_themeroller.css" />
     <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\sort_asc.png" />
     <Content Include="Content\images\sort_asc_disabled.png" />
     <Content Include="Content\images\sort_both.png" />
@@ -357,6 +358,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Invoicing\Index.cshtml" />
     <Content Include="Views\Invoices\Index.cshtml" />
+    <Content Include="Views\Shared\InvoicedTasks.cshtml" />
+    <Content Include="Views\Shared\IterationsList.cshtml" />
+    <Content Include="Views\Shared\Invoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

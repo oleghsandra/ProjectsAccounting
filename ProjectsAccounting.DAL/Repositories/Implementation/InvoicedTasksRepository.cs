@@ -20,5 +20,12 @@ namespace ProjectsAccounting.DAL.Repositories
             this.Context.InvoicedTasks.Add(invoiceTask);
             this.Save();
         }
+
+        public void InsertRange(List<InvoicedTaskModel> models)
+        {
+            var invoiceTasks = models.Select(t => InvoicedTaskMapper.ToDBInvoicedTask(t));
+            this.Context.InvoicedTasks.AddRange(invoiceTasks);
+            this.Save();
+        }
     }
 }

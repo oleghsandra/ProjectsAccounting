@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ProjectsAccounting.Common.Models
+﻿namespace ProjectsAccounting.Common.Models
 {
     public class TaskModel
     {
@@ -15,5 +13,7 @@ namespace ProjectsAccounting.Common.Models
         public string Description { get; set; }
 
         public double HoursReported { get; set; }
+
+        public UserModel User { get; set; }
     }
 }

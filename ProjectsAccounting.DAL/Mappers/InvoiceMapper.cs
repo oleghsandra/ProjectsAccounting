@@ -1,11 +1,13 @@
 ﻿using ProjectsAccounting.Common.Models;
 using ProjectsAccounting.DAL.DB;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectsAccounting.DAL.Mappers
 {
     class InvoiceMapper
     {
-        public static InvoiceModel ToInvoiceModel(Invoices dbModel)
+        public static InvoiceModel ToInvoiceModel(Invoices dbModel, Projects project = null, ICollection<InvoicedTasks> invoicedTasks = null)
         {
             return new InvoiceModel()
             {
@@ -20,7 +22,14 @@ namespace ProjectsAccounting.DAL.Mappers
                 Fax = dbModel.Fax,
                 Phone = dbModel.Phone,
                 TaxRate = dbModel.TaxRate ?? 0,
-                OfficeRate = dbModel.OfficeRate,
+                OfficeRate = dbModel.OfficeRate ?? 0,
+                CustomerName = dbModel.CustomerName,
+                CustomerAddress = dbModel.CustomerAddress,
+                CustomerEmail = dbModel.CustomerEmail,
+                CustomerPhone = dbModel.CustomerPhone,
+                Project = project == null ? null : ProjectMapper.ToProjectModel(project),
+                InvoicedTasks = invoicedTasks == null ? null
+                    : invoicedTasks.Select(t => InvoicedTaskMapper.ToInvoicedTaskModel(t)).ToList()
             };
         }
 
@@ -40,6 +49,10 @@ namespace ProjectsAccounting.DAL.Mappers
                 Phone = model.Phone,
                 TaxRate = model.TaxRate,
                 OfficeRate = model.OfficeRate,
+                CustomerName = model.CustomerName,
+                CustomerAddress = model.CustomerAddress,
+                CustomerEmail = model.CustomerEmail,
+                CustomerPhone = model.CustomerPhone
             };
         }
     }

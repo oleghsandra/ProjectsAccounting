@@ -9,25 +9,31 @@
 }
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <fieldset class="fieldset-details">
-                <legend>Create Invoice</legend>
-                <div class="form-group">
-                    <label for="InvoiceDate">Ivoice Date:</label>
-                    <input type="text" class="form-control datepicker" id="InvoiceDate" name="InvoiceDate" value="@DateTime.Now.ToShortDateString()">
-                </div>
-                <div class="form-group">
-                    <label for="Notes">Invoice Comment:</label>
-                    <input type="text" class="form-control" id="Notes" name="Notes">
-                </div>
-            </fieldset>
+    <form id="invoicingForm">
+        <div class="row">
+            <div class="col-md-3">
+                <fieldset class="fieldset-details">
+                    <legend>Create Invoice</legend>
+                    <div class="form-group">
+                        <label for="InvoiceDate">Ivoice Date:</label>
+                        <input type="text" class="form-control datepicker" id="InvoiceDate" name="InvoiceDate" value="@DateTime.Now.ToShortDateString()">
+                    </div>
+                    <div class="form-group">
+                        <label for="Notes">Comment:</label>
+                        <input type="text" class="form-control" id="Notes" name="Notes">
+                    </div>
+                    <div class="form-group">
+                        <label for="ProjectId">Select Project:</label>
+                        @Html.DropDownList("ProjectId", Model.ProjectsOptions, new { id = "ProjectId", @class = "form-control", data_request_url = Url.Action("LoadIterations", "Invoicing") })
+                    </div>
+                    <div class="form-group">
+                        <label for="IterationId">Select Iteration:</label>
+                        <input class="form-control" disabled id="IterationId" />
+                    </div>
+                </fieldset>
+                <button class="btn btn-info" id="saveInvoiceBtn" data-request-url="@Url.Action("SaveInvoice", "Invoicing")" disabled>Save</button>
+            </div>
+            <div id="invoicesTasksContainer"></div>
         </div>
-        <div class="col-md-9">
-            <fieldset class="fieldset-details">
-                <legend>Project Info</legend>
-
-            </fieldset>
-        </div>
-    </div>
+    </form>
 </div>

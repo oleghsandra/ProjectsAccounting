@@ -5,6 +5,8 @@ namespace ProjectsAccounting.DAL.Repositories
 {
     public interface IProjectRepository
     {
+        ProjectModel Get(int projectId);
+
         List<ProjectModel> GetAll();
 
         void Insert(ProjectModel model);

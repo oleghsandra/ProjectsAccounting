@@ -8,6 +8,10 @@
 
         public int UserId { get; set; }
 
+        public double UserExternalRate { get; set; }
+
+        public double UserInternalRate { get; set; }
+
         public double ReportedHours { get; set; }
 
         public string TaskName { get; set; }

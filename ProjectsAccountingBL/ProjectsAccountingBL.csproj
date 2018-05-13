@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,7 @@
     <Compile Include="Providers\Abstract\IIterationsProvider.cs" />
     <Compile Include="Providers\Abstract\ITasksProvider.cs" />
     <Compile Include="Providers\Abstract\ICompanyInfoProvider.cs" />
+    <Compile Include="Providers\Abstract\IInvoicesProvider.cs" />
     <Compile Include="Providers\Abstract\IUsersProvider.cs" />
     <Compile Include="Providers\Abstract\IProjectsProvider.cs" />
     <Compile Include="Providers\Implementation\TasksProvider.cs" />
@@ -52,6 +54,7 @@
     <Compile Include="Providers\Implementation\ProjectsProvider.cs" />
     <Compile Include="Providers\Implementation\IterationsProvider.cs" />
     <Compile Include="Providers\Implementation\CompanyInfoProvider.cs" />
+    <Compile Include="Providers\Implementation\InvoicesProvider.cs" />
     <Compile Include="Providers\Implementation\UsersProvider.cs" />
   </ItemGroup>
   <ItemGroup>

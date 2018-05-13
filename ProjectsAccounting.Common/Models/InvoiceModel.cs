@@ -9,6 +9,8 @@ namespace ProjectsAccounting.Common.Models
 
         public int ProjectId { get; set; }
 
+        public int IterationId { get; set; }
+
         public DateTime InvoiceDate { get; set; }
         
         public string Notes { get; set; }
@@ -27,8 +29,16 @@ namespace ProjectsAccounting.Common.Models
 
         public double TaxRate { get; set; }
 
-        public string OfficeRate { get; set; }
-        
+        public double OfficeRate { get; set; }
+
+        public string CustomerName { get; set; }
+
+        public string CustomerAddress { get; set; }
+
+        public string CustomerEmail { get; set; }
+
+        public string CustomerPhone { get; set; }
+
         public List<InvoicedTaskModel> InvoicedTasks { get; set; }
 
         public ProjectModel Project { get; set; }

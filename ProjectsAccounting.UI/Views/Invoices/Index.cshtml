@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<ProjectsAccounting.Common.Models.InvoiceModel>
+
+@{
     ViewBag.Title = "Invoices";
 }
 
@@ -8,11 +10,50 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <fieldset class="fieldset-details">
                 <legend>Ivoices</legend>
-                
+                <div class="table-responsive">
+                    <table class="table table-striped" id="invoicesTable">
+                        <thead>
+                            <tr>
+                                <th>Invoice Number</th>
+                                <th>Generate</th>
+                                <th>Date</th>
+                                <th>Project</th>
+                                <th>Customer</th>
+                                <th>Comment</th>
+                                <th class="text-right">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Any())
+                            {
+                                foreach (var invoice in Model)
+                                {
+                                    <tr>
+                                        <td>#@invoice.InvoiceId</td>
+                                        <th>
+                                            <button class="btn btn-default generateReportButton" 
+                                                    data-invoice-id="@invoice.InvoiceId"
+                                                    data-request-url="@Url.Action("LoadInvoice", "Invoices")">Generate</button>
+                                        </th>
+                                        <td>@invoice.InvoiceDate.ToShortDateString()</td>
+                                        <td>@invoice.Project.ProjectName</td>
+                                        <td>@invoice.Project.CustomerName</td>
+                                        <td>@invoice.Notes</td>
+                                        <td class="text-right text-bold">@invoice.InvoicedTasks.Sum(t => t.UserExternalRate * t.ReportedHours).ToString("0.00")</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </fieldset>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" id="invoiceContainer">
         </div>
     </div>
 </div>

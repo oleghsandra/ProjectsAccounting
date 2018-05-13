@@ -22,34 +22,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="InvoicedTasks">
-      <EntityTypeMapping TypeName="ProjectsAccountingModel.InvoicedTasks">
-        <MappingFragment StoreEntitySet="InvoicedTasks">
-          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
-          <ScalarProperty Name="ReportedHours" ColumnName="ReportedHours" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-          <ScalarProperty Name="InvoicedTaskId" ColumnName="InvoicedTaskId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Invoices">
-      <EntityTypeMapping TypeName="ProjectsAccountingModel.Invoices">
-        <MappingFragment StoreEntitySet="Invoices">
-          <ScalarProperty Name="OfficeRate" ColumnName="OfficeRate" />
-          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Fax" ColumnName="Fax" />
-          <ScalarProperty Name="LocationAddress" ColumnName="LocationAddress" />
-          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
-          <ScalarProperty Name="MainAccpuntantName" ColumnName="MainAccpuntantName" />
-          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
-          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CompanyInfo">
       <EntityTypeMapping TypeName="ProjectsAccountingModel.CompanyInfo">
         <MappingFragment StoreEntitySet="CompanyInfo">
@@ -75,6 +47,41 @@
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
           <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="ProjectsAccountingModel.Invoices">
+        <MappingFragment StoreEntitySet="Invoices">
+          <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+          <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="OfficeRate" ColumnName="OfficeRate" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="LocationAddress" ColumnName="LocationAddress" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="MainAccpuntantName" ColumnName="MainAccpuntantName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoicedTasks">
+      <EntityTypeMapping TypeName="ProjectsAccountingModel.InvoicedTasks">
+        <MappingFragment StoreEntitySet="InvoicedTasks">
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="ReportedHours" ColumnName="ReportedHours" />
+          <ScalarProperty Name="UserInternalRate" ColumnName="UserInternalRate" />
+          <ScalarProperty Name="UserExternalRate" ColumnName="UserExternalRate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="InvoicedTaskId" ColumnName="InvoicedTaskId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
