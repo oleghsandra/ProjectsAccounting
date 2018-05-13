@@ -37,6 +37,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\InvoicedTaskModel.cs" />
+    <Compile Include="Models\InvoiceModel.cs" />
+    <Compile Include="Models\CompanyInfoModel.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Models\IterationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

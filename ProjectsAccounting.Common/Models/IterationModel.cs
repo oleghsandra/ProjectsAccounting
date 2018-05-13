@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ProjectsAccounting.Common.Models
+﻿namespace ProjectsAccounting.Common.Models
 {
     public class IterationModel
     {

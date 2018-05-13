@@ -19,7 +19,7 @@ namespace ProjectsAccounting.DAL.DB
         public Nullable<int> UserId { get; set; }
         public Nullable<double> ExternalRate { get; set; }
     
-        public virtual Projects Projects { get; set; }
         public virtual Users Users { get; set; }
+        public virtual Projects Projects { get; set; }
     }
 }

@@ -8,11 +8,17 @@ namespace ProjectsAccounting.UI
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/invoices").Include(
+                        "~/Scripts/Site/invoices"));
+
+            bundles.Add(new ScriptBundle("~/bundles/invoicing").Include(
+                        "~/Scripts/Site/invoicing.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/projects").Include(
                         "~/Scripts/Site/projects.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/users").Include(
-                        "~/Scripts/Site/users.js"));
+            bundles.Add(new ScriptBundle("~/bundles/rates").Include(
+                        "~/Scripts/Site/rates.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
@@ -28,12 +34,14 @@ namespace ProjectsAccounting.UI
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/bootstrap-datepicker.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/Datatables/jquery.dataTables.css"));
+                      "~/Content/Datatables/jquery.dataTables.css",
+                      "~/Content/bootstrap-datepicker.min.css"));
         }
     }
 }

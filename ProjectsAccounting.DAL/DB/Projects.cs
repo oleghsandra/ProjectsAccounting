@@ -18,13 +18,20 @@ namespace ProjectsAccounting.DAL.DB
         public Projects()
         {
             this.ProjectRates = new HashSet<ProjectRates>();
+            this.Invoices = new HashSet<Invoices>();
         }
     
         public int ProjectId { get; set; }
         public string ProjectName { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerAddress { get; set; }
+        public string CustomerEmail { get; set; }
+        public string CustomerPhone { get; set; }
         public string PMCID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProjectRates> ProjectRates { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoices> Invoices { get; set; }
     }
 }

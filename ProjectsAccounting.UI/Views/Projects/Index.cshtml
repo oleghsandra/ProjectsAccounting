@@ -1,0 +1,56 @@
+﻿@model List<ProjectsAccounting.Common.Models.ProjectModel>
+
+@{
+    ViewBag.Title = "Projects";
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/projects")
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <fieldset class="fieldset-details">
+                <legend>Projects</legend>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="projectsTable">
+                        <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Customer</th>
+                                <th>Customer Phone</th>
+                                <th>Customer Email</th>
+                                <th>Customer Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Any())
+                            {
+                                foreach (var project in Model)
+                                {
+                                    <tr data-project-id="@project.ProjectId" data-request-url="@Url.Action("UpdateProjectCustomerInfo", "Projects")">
+                                        <td>@project.ProjectName</td>
+                                        <td class="td-with-input">
+                                            <input class="form-control table-input-text customer-info name" value="@project.CustomerName" />
+                                        </td>
+                                        <td class="td-with-input">
+                                            <input class="form-control table-input-text customer-info phone" value="@project.CustomerPhone" />
+                                        </td>
+                                        <td class="td-with-input">
+                                            <input class="form-control table-input-text customer-info email" value="@project.CustomerEmail" />
+                                        </td>
+                                        <td class="td-with-input">
+                                            <input class="form-control table-input-text customer-info address" value="@project.CustomerAddress" />
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-info" id="synchronize" data-request-url="@Url.Action("SynhronizeProjects", "Projects")">Synchronize</button>
+            </fieldset>
+        </div>
+    </div>
+</div>

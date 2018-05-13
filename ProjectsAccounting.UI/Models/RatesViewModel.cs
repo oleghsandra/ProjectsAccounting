@@ -6,6 +6,8 @@ namespace ProjectsAccounting.UI.Models
 {
     public class RatesViewModel
     {
+        public CompanyInfoModel CompanyInfo { get; set; }
+
         public List<UserModel> Users { get; set; }
 
         public List<ProjectRateModel> ProjectRates { get; set; }

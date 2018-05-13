@@ -1,0 +1,87 @@
+﻿@model ProjectsAccounting.UI.Models.RatesViewModel
+
+@{
+    ViewBag.Title = "Rates";
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/rates")
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <fieldset class="fieldset-details">
+                <legend>Internal Rates (Office Rate: @Model.CompanyInfo.OfficeRate.ToString("0.00"))</legend>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Full Name</th>
+                                <th>Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Users != null && Model.Users.Any())
+                            {
+                                foreach (var user in Model.Users)
+                                {
+                                    <tr>
+                                        <td>@user.UserName</td>
+                                        <td>@user.FullName</td>
+                                        <td class="td-with-input">
+                                            <input class="form-control table-input internal-rate text-right" data-user-id="@user.UserId" data-request-url="@Url.Action("SaveInternalRate", "Rates")" value="@user.InternalRate.ToString("0.00")" />
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-info" id="synchronize" data-request-url="@Url.Action("SynhronizeUsers", "Rates")">Synchronize</button>
+            </fieldset>
+        </div>
+        <div class="col-md-6">
+            <fieldset class="fieldset-details">
+                <legend>External Rates</legend>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="externalRatesTable">
+                        <thead>
+                            <tr>
+                                <th>Project</th>
+                                <th>User</th>
+                                <th>Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.ProjectRates != null && Model.ProjectRates.Any())
+                            {
+                                foreach (var projectRate in Model.ProjectRates)
+                                {
+                                    var user = Model.Users.FirstOrDefault(u => u.UserId == projectRate.UserId);
+                                    var isYellowRow = user != null && ((user.InternalRate + Model.CompanyInfo.OfficeRate) == projectRate.ExternalRate);
+                                    var isRedRow = user != null && ((user.InternalRate + Model.CompanyInfo.OfficeRate) > projectRate.ExternalRate);
+
+                                    <tr data-project-id="@projectRate.UserId" class="@(isYellowRow ? "yellowRow" : isRedRow ? "redRow" : "")">
+                                        <td>@projectRate.Project.ProjectName</td>
+                                        <td>@projectRate.User.UserName</td>
+                                        <td class="text-right">@projectRate.ExternalRate.ToString("0.00")</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>@Html.DropDownList("projectSelector", Model.ProjectsOptions, new { id = "projectSelector", @class = "form-control" })</th>
+                                <th>@Html.DropDownList("userSelector", Model.UsersOptions, new { id = "userSelector", @class = "form-control" })</th>
+                                <th><input type="number" min="0" class="form-control text-right" id="externalRate" value="0" /></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <button class="btn btn-info" id="saveExteralRate" data-request-url="@Url.Action("SaveProjectUserRate", "Rates")">Save</button>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>

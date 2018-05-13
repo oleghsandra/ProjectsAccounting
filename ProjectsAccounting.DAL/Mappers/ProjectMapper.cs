@@ -11,7 +11,25 @@ namespace ProjectsAccounting.DAL.Mappers
             {
                 PMCID = dbModel.PMCID,
                 ProjectId = dbModel.ProjectId,
-                ProjectName = dbModel.ProjectName
+                ProjectName = dbModel.ProjectName,
+                CustomerName = dbModel.CustomerName,
+                CustomerAddress = dbModel.CustomerAddress,
+                CustomerEmail = dbModel.CustomerEmail,
+                CustomerPhone = dbModel.CustomerPhone,
+            };
+        }
+
+        public static Projects ToDBProject(ProjectModel model)
+        {
+            return new Projects()
+            {
+                PMCID = model.PMCID,
+                ProjectId = model.ProjectId,
+                ProjectName = model.ProjectName,
+                CustomerName = model.CustomerName,
+                CustomerAddress = model.CustomerAddress,
+                CustomerEmail = model.CustomerEmail,
+                CustomerPhone = model.CustomerPhone,
             };
         }
     }

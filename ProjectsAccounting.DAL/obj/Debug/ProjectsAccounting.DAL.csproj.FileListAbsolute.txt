@@ -12,3 +12,17 @@ C:\LP\КН-37 другий семестр\Курсова\ProjectsAccounting\Proj
 C:\LP\КН-37 другий семестр\Курсова\ProjectsAccounting\ProjectsAccounting\ProjectsAccounting.DAL\obj\Debug\ProjectsAccounting.DAL.csproj.CopyComplete
 C:\LP\КН-37 другий семестр\Курсова\ProjectsAccounting\ProjectsAccounting\ProjectsAccounting.DAL\obj\Debug\ProjectsAccounting.DAL.dll
 C:\LP\КН-37 другий семестр\Курсова\ProjectsAccounting\ProjectsAccounting\ProjectsAccounting.DAL\obj\Debug\ProjectsAccounting.DAL.pdb
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\bin\Debug\ProjectsAccounting.DAL.dll.config
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\bin\Debug\ProjectsAccounting.DAL.dll
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\bin\Debug\ProjectsAccounting.DAL.pdb
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\bin\Debug\EntityFramework.dll
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\bin\Debug\ProjectsAccounting.Common.dll
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\bin\Debug\ProjectsAccounting.Common.pdb
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\bin\Debug\EntityFramework.xml
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\obj\Debug\ProjectsAccounting.DAL.csprojAssemblyReference.cache
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\obj\Debug\ProjectsAccounting.DAL.csproj.CoreCompileInputs.cache
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\obj\Debug\ProjectsAccounting.DAL.csproj.CopyComplete
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\obj\Debug\ProjectsAccounting.DAL.dll
+C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccounting.DAL\obj\Debug\ProjectsAccounting.DAL.pdb

@@ -1,0 +1,33 @@
+﻿@model ProjectsAccounting.UI.Models.InvoicingViewModel
+
+@{
+    ViewBag.Title = "Invoicing";
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/invoicing")
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <fieldset class="fieldset-details">
+                <legend>Create Invoice</legend>
+                <div class="form-group">
+                    <label for="InvoiceDate">Ivoice Date:</label>
+                    <input type="text" class="form-control datepicker" id="InvoiceDate" name="InvoiceDate" value="@DateTime.Now.ToShortDateString()">
+                </div>
+                <div class="form-group">
+                    <label for="Notes">Invoice Comment:</label>
+                    <input type="text" class="form-control" id="Notes" name="Notes">
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-md-9">
+            <fieldset class="fieldset-details">
+                <legend>Project Info</legend>
+
+            </fieldset>
+        </div>
+    </div>
+</div>

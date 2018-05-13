@@ -12,6 +12,14 @@ namespace ProjectsAccounting.Common.Models
 
         public string ProjectName { get; set; }
 
+        public string CustomerName { get; set; }
+
+        public string CustomerAddress { get; set; }
+
+        public string CustomerEmail { get; set; }
+
+        public string CustomerPhone { get; set; }
+
         public string PMCID { get; set; }
 
         public virtual List<ProjectRateModel> ProjectRates { get; set; }

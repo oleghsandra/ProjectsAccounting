@@ -5,6 +5,47 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ProjectsAccountingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CompanyInfo">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="255" />
+          <Property Name="MainAccpuntantName" Type="varchar" MaxLength="255" />
+          <Property Name="OwnerName" Type="varchar" MaxLength="255" />
+          <Property Name="LocationAddress" Type="varchar" MaxLength="255" />
+          <Property Name="Fax" Type="varchar" MaxLength="255" />
+          <Property Name="Phone" Type="varchar" MaxLength="255" />
+          <Property Name="TaxRate" Type="float" />
+          <Property Name="OfficeRate" Type="float" />
+        </EntityType>
+        <EntityType Name="InvoicedTasks">
+          <Key>
+            <PropertyRef Name="InvoicedTaskId" />
+          </Key>
+          <Property Name="InvoicedTaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ReportedHours" Type="float" />
+          <Property Name="TaskName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Invoices">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="Notes" Type="varchar" MaxLength="255" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="255" />
+          <Property Name="MainAccpuntantName" Type="varchar" MaxLength="255" />
+          <Property Name="OwnerName" Type="varchar" MaxLength="255" />
+          <Property Name="LocationAddress" Type="varchar" MaxLength="255" />
+          <Property Name="Fax" Type="varchar" MaxLength="255" />
+          <Property Name="Phone" Type="varchar" MaxLength="255" />
+          <Property Name="TaxRate" Type="float" />
+          <Property Name="OfficeRate" Type="varchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="ProjectRates">
           <Key>
             <PropertyRef Name="ProjectRateId" />
@@ -20,6 +61,10 @@
           </Key>
           <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProjectName" Type="varchar" MaxLength="255" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="255" />
+          <Property Name="CustomerAddress" Type="varchar" MaxLength="255" />
+          <Property Name="CustomerEmail" Type="varchar" MaxLength="255" />
+          <Property Name="CustomerPhone" Type="varchar" MaxLength="255" />
           <Property Name="PMCID" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Users">
@@ -32,7 +77,43 @@
           <Property Name="PMCID" Type="varchar" MaxLength="255" />
           <Property Name="InternalRate" Type="float" />
         </EntityType>
-        <Association Name="FK__ProjectRa__Proje__4316F928">
+        <Association Name="FK__InvoicedT__TaskN__68487DD7">
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="0..1" />
+          <End Role="InvoicedTasks" Type="Self.InvoicedTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoices">
+              <PropertyRef Name="InvoiceId" />
+            </Principal>
+            <Dependent Role="InvoicedTasks">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InvoicedT__UserI__693CA210">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="InvoicedTasks" Type="Self.InvoicedTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="InvoicedTasks">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoices__Projec__656C112C">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjectRa__Proje__59FA5E80">
           <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
           <End Role="ProjectRates" Type="Self.ProjectRates" Multiplicity="*" />
           <ReferentialConstraint>
@@ -44,7 +125,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProjectRa__UserI__4222D4EF">
+        <Association Name="FK__ProjectRa__UserI__59063A47">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="ProjectRates" Type="Self.ProjectRates" Multiplicity="*" />
           <ReferentialConstraint>
@@ -57,14 +138,29 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ProjectsAccountingModelStoreContainer">
+          <EntitySet Name="CompanyInfo" EntityType="Self.CompanyInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvoicedTasks" EntityType="Self.InvoicedTasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProjectRates" EntityType="Self.ProjectRates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__ProjectRa__Proje__4316F928" Association="Self.FK__ProjectRa__Proje__4316F928">
+          <AssociationSet Name="FK__InvoicedT__TaskN__68487DD7" Association="Self.FK__InvoicedT__TaskN__68487DD7">
+            <End Role="Invoices" EntitySet="Invoices" />
+            <End Role="InvoicedTasks" EntitySet="InvoicedTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InvoicedT__UserI__693CA210" Association="Self.FK__InvoicedT__UserI__693CA210">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="InvoicedTasks" EntitySet="InvoicedTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoices__Projec__656C112C" Association="Self.FK__Invoices__Projec__656C112C">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjectRa__Proje__59FA5E80" Association="Self.FK__ProjectRa__Proje__59FA5E80">
             <End Role="Projects" EntitySet="Projects" />
             <End Role="ProjectRates" EntitySet="ProjectRates" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProjectRa__UserI__4222D4EF" Association="Self.FK__ProjectRa__UserI__4222D4EF">
+          <AssociationSet Name="FK__ProjectRa__UserI__59063A47" Association="Self.FK__ProjectRa__UserI__59063A47">
             <End Role="Users" EntitySet="Users" />
             <End Role="ProjectRates" EntitySet="ProjectRates" />
           </AssociationSet>
@@ -75,15 +171,30 @@
       <Schema Namespace="ProjectsAccountingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ProjectsAccountingEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ProjectRates" EntityType="ProjectsAccountingModel.ProjectRates" />
-          <EntitySet Name="Projects" EntityType="ProjectsAccountingModel.Projects" />
           <EntitySet Name="Users" EntityType="ProjectsAccountingModel.Users" />
-          <AssociationSet Name="FK__ProjectRa__Proje__4316F928" Association="ProjectsAccountingModel.FK__ProjectRa__Proje__4316F928">
-            <End Role="Projects" EntitySet="Projects" />
-            <End Role="ProjectRates" EntitySet="ProjectRates" />
-          </AssociationSet>
           <AssociationSet Name="FK__ProjectRa__UserI__4222D4EF" Association="ProjectsAccountingModel.FK__ProjectRa__UserI__4222D4EF">
             <End Role="Users" EntitySet="Users" />
             <End Role="ProjectRates" EntitySet="ProjectRates" />
+          </AssociationSet>
+          <EntitySet Name="InvoicedTasks" EntityType="ProjectsAccountingModel.InvoicedTasks" />
+          <AssociationSet Name="FK__InvoicedT__UserI__5070F446" Association="ProjectsAccountingModel.FK__InvoicedT__UserI__5070F446">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="InvoicedTasks" EntitySet="InvoicedTasks" />
+          </AssociationSet>
+          <EntitySet Name="CompanyInfo" EntityType="ProjectsAccountingModel.CompanyInfo" />
+          <EntitySet Name="Projects" EntityType="ProjectsAccountingModel.Projects" />
+          <AssociationSet Name="FK__ProjectRa__Proje__59FA5E80" Association="ProjectsAccountingModel.FK__ProjectRa__Proje__59FA5E80">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectRates" EntitySet="ProjectRates" />
+          </AssociationSet>
+          <EntitySet Name="Invoices" EntityType="ProjectsAccountingModel.Invoices" />
+          <AssociationSet Name="FK__InvoicedT__TaskN__68487DD7" Association="ProjectsAccountingModel.FK__InvoicedT__TaskN__68487DD7">
+            <End Role="Invoices" EntitySet="Invoices" />
+            <End Role="InvoicedTasks" EntitySet="InvoicedTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Invoices__Projec__656C112C" Association="ProjectsAccountingModel.FK__Invoices__Projec__656C112C">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Invoices" EntitySet="Invoices" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="ProjectRates">
@@ -94,17 +205,8 @@
           <Property Name="ProjectId" Type="Int32" />
           <Property Name="UserId" Type="Int32" />
           <Property Name="ExternalRate" Type="Double" />
-          <NavigationProperty Name="Projects" Relationship="ProjectsAccountingModel.FK__ProjectRa__Proje__4316F928" FromRole="ProjectRates" ToRole="Projects" />
           <NavigationProperty Name="Users" Relationship="ProjectsAccountingModel.FK__ProjectRa__UserI__4222D4EF" FromRole="ProjectRates" ToRole="Users" />
-        </EntityType>
-        <EntityType Name="Projects">
-          <Key>
-            <PropertyRef Name="ProjectId" />
-          </Key>
-          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="PMCID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ProjectRates" Relationship="ProjectsAccountingModel.FK__ProjectRa__Proje__4316F928" FromRole="Projects" ToRole="ProjectRates" />
+          <NavigationProperty Name="Projects" Relationship="ProjectsAccountingModel.FK__ProjectRa__Proje__59FA5E80" FromRole="ProjectRates" ToRole="Projects" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -116,8 +218,73 @@
           <Property Name="PMCID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="InternalRate" Type="Double" />
           <NavigationProperty Name="ProjectRates" Relationship="ProjectsAccountingModel.FK__ProjectRa__UserI__4222D4EF" FromRole="Users" ToRole="ProjectRates" />
+          <NavigationProperty Name="InvoicedTasks" Relationship="ProjectsAccountingModel.FK__InvoicedT__UserI__5070F446" FromRole="Users" ToRole="InvoicedTasks" />
         </EntityType>
-        <Association Name="FK__ProjectRa__Proje__4316F928">
+        <Association Name="FK__ProjectRa__UserI__4222D4EF">
+          <End Type="ProjectsAccountingModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="ProjectsAccountingModel.ProjectRates" Role="ProjectRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="ProjectRates">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="InvoicedTasks">
+          <Key>
+            <PropertyRef Name="InvoicedTaskId" />
+          </Key>
+          <Property Name="InvoicedTaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ReportedHours" Type="Double" />
+          <Property Name="TaskName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="ProjectsAccountingModel.FK__InvoicedT__UserI__5070F446" FromRole="InvoicedTasks" ToRole="Users" />
+          <NavigationProperty Name="Invoices" Relationship="ProjectsAccountingModel.FK__InvoicedT__TaskN__68487DD7" FromRole="InvoicedTasks" ToRole="Invoices" />
+        </EntityType>
+        <Association Name="FK__InvoicedT__UserI__5070F446">
+          <End Type="ProjectsAccountingModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="ProjectsAccountingModel.InvoicedTasks" Role="InvoicedTasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="InvoicedTasks">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CompanyInfo">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MainAccpuntantName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LocationAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TaxRate" Type="Double" />
+          <Property Name="OfficeRate" Type="Double" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PMCID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProjectRates" Relationship="ProjectsAccountingModel.FK__ProjectRa__Proje__59FA5E80" FromRole="Projects" ToRole="ProjectRates" />
+          <NavigationProperty Name="Invoices" Relationship="ProjectsAccountingModel.FK__Invoices__Projec__656C112C" FromRole="Projects" ToRole="Invoices" />
+        </EntityType>
+        <Association Name="FK__ProjectRa__Proje__59FA5E80">
           <End Type="ProjectsAccountingModel.Projects" Role="Projects" Multiplicity="0..1" />
           <End Type="ProjectsAccountingModel.ProjectRates" Role="ProjectRates" Multiplicity="*" />
           <ReferentialConstraint>
@@ -129,15 +296,46 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProjectRa__UserI__4222D4EF">
-          <End Type="ProjectsAccountingModel.Users" Role="Users" Multiplicity="0..1" />
-          <End Type="ProjectsAccountingModel.ProjectRates" Role="ProjectRates" Multiplicity="*" />
+        <EntityType Name="Invoices">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MainAccpuntantName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LocationAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TaxRate" Type="Double" />
+          <Property Name="OfficeRate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InvoicedTasks" Relationship="ProjectsAccountingModel.FK__InvoicedT__TaskN__68487DD7" FromRole="Invoices" ToRole="InvoicedTasks" />
+          <NavigationProperty Name="Projects" Relationship="ProjectsAccountingModel.FK__Invoices__Projec__656C112C" FromRole="Invoices" ToRole="Projects" />
+        </EntityType>
+        <Association Name="FK__InvoicedT__TaskN__68487DD7">
+          <End Type="ProjectsAccountingModel.Invoices" Role="Invoices" Multiplicity="0..1" />
+          <End Type="ProjectsAccountingModel.InvoicedTasks" Role="InvoicedTasks" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserId" />
+            <Principal Role="Invoices">
+              <PropertyRef Name="InvoiceId" />
             </Principal>
-            <Dependent Role="ProjectRates">
-              <PropertyRef Name="UserId" />
+            <Dependent Role="InvoicedTasks">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Invoices__Projec__656C112C">
+          <End Type="ProjectsAccountingModel.Projects" Role="Projects" Multiplicity="0..1" />
+          <End Type="ProjectsAccountingModel.Invoices" Role="Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="ProjectId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -157,15 +355,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Projects">
-            <EntityTypeMapping TypeName="ProjectsAccountingModel.Projects">
-              <MappingFragment StoreEntitySet="Projects">
-                <ScalarProperty Name="PMCID" ColumnName="PMCID" />
-                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
-                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="ProjectsAccountingModel.Users">
               <MappingFragment StoreEntitySet="Users">
@@ -174,6 +363,63 @@
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoicedTasks">
+            <EntityTypeMapping TypeName="ProjectsAccountingModel.InvoicedTasks">
+              <MappingFragment StoreEntitySet="InvoicedTasks">
+                <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+                <ScalarProperty Name="ReportedHours" ColumnName="ReportedHours" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="InvoicedTaskId" ColumnName="InvoicedTaskId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyInfo">
+            <EntityTypeMapping TypeName="ProjectsAccountingModel.CompanyInfo">
+              <MappingFragment StoreEntitySet="CompanyInfo">
+                <ScalarProperty Name="OfficeRate" ColumnName="OfficeRate" />
+                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="LocationAddress" ColumnName="LocationAddress" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="MainAccpuntantName" ColumnName="MainAccpuntantName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ProjectsAccountingModel.Projects">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="PMCID" ColumnName="PMCID" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="ProjectsAccountingModel.Invoices">
+              <MappingFragment StoreEntitySet="Invoices">
+                <ScalarProperty Name="OfficeRate" ColumnName="OfficeRate" />
+                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="LocationAddress" ColumnName="LocationAddress" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="MainAccpuntantName" ColumnName="MainAccpuntantName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

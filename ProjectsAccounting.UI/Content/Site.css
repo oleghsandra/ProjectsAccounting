@@ -28,9 +28,17 @@ textarea {
     padding: 4px 10px !important;
 }
 
+.text-right {
+    text-align: right;
+}
+
 .table-input {
     width: 100px;
-    text-align: right;
+    height: 30px;
+}
+
+.table-input-text {
+    width: 150px;
     height: 30px;
 }
 
@@ -38,7 +46,12 @@ textarea {
     height: 30px;
 }
 
-#projectSelector{
-    width: 80%;
-    display: inline-block;
+#externalRatesTable .yellowRow {
+    color: rgb(183, 175, 31);
+    font-weight: bold;
+}
+
+#externalRatesTable .redRow {
+    color: red;
+    font-weight: bold;
 }

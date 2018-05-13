@@ -9,6 +9,7 @@ namespace ProjectsAccounting.DAL.Mappers
         {
             return new ProjectRateModel()
             {
+                ProjectRateId = dbModel.ProjectRateId,
                 ProjectId = dbModel.ProjectId ?? 0,
                 UserId = dbModel.UserId ?? 0,
                 ExternalRate = dbModel.ExternalRate ?? 0

@@ -41,8 +41,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\ProjectsProvider.cs" />
-    <Compile Include="Providers\UsersProvider.cs" />
+    <Compile Include="Providers\Abstract\IProjectRatesProvider.cs" />
+    <Compile Include="Providers\Abstract\IIterationsProvider.cs" />
+    <Compile Include="Providers\Abstract\ITasksProvider.cs" />
+    <Compile Include="Providers\Abstract\ICompanyInfoProvider.cs" />
+    <Compile Include="Providers\Abstract\IUsersProvider.cs" />
+    <Compile Include="Providers\Abstract\IProjectsProvider.cs" />
+    <Compile Include="Providers\Implementation\TasksProvider.cs" />
+    <Compile Include="Providers\Implementation\ProjectRatesProvider.cs" />
+    <Compile Include="Providers\Implementation\ProjectsProvider.cs" />
+    <Compile Include="Providers\Implementation\IterationsProvider.cs" />
+    <Compile Include="Providers\Implementation\CompanyInfoProvider.cs" />
+    <Compile Include="Providers\Implementation\UsersProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectsAccounting.Common\ProjectsAccounting.Common.csproj">
+      <Project>{447110AD-188E-42FA-A37A-497B3BE56435}</Project>
+      <Name>ProjectsAccounting.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectsAccounting.DAL\ProjectsAccounting.DAL.csproj">
+      <Project>{71E92FD6-5CDB-426C-8A90-090281EB5083}</Project>
+      <Name>ProjectsAccounting.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectsAccounting.TFS\ProjectsAccounting.TFS.csproj">
+      <Project>{06DCE611-E793-4276-928E-0B9AAEFD9850}</Project>
+      <Name>ProjectsAccounting.TFS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

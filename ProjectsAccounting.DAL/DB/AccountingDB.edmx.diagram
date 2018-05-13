@@ -4,12 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8e9ab8178ecb488996875d2fc6b7c3f2" Name="Diagram1">
+      <Diagram DiagramId="8e9ab8178ecb488996875d2fc6b7c3f2" Name="Diagram1" ZoomLevel="92">
         <EntityTypeShape EntityType="ProjectsAccountingModel.ProjectRates" Width="1.5" PointX="3" PointY="0.875" />
-        <EntityTypeShape EntityType="ProjectsAccountingModel.Projects" Width="1.5" PointX="0.75" PointY="1.125" />
         <EntityTypeShape EntityType="ProjectsAccountingModel.Users" Width="1.5" PointX="0.75" PointY="4.875" />
-        <AssociationConnector Association="ProjectsAccountingModel.FK__ProjectRa__Proje__4316F928" />
         <AssociationConnector Association="ProjectsAccountingModel.FK__ProjectRa__UserI__4222D4EF" />
+        <EntityTypeShape EntityType="ProjectsAccountingModel.InvoicedTasks" Width="1.5" PointX="8.5" PointY="1.5" />
+        <AssociationConnector Association="ProjectsAccountingModel.FK__InvoicedT__UserI__5070F446" />
+        <EntityTypeShape EntityType="ProjectsAccountingModel.CompanyInfo" Width="1.5" PointX="3.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ProjectsAccountingModel.Projects" Width="1.5" PointX="0.75" PointY="1.375" />
+        <AssociationConnector Association="ProjectsAccountingModel.FK__ProjectRa__Proje__59FA5E80" />
+        <EntityTypeShape EntityType="ProjectsAccountingModel.Invoices" Width="1.5" PointX="3" PointY="8.875" />
+        <AssociationConnector Association="ProjectsAccountingModel.FK__InvoicedT__TaskN__68487DD7" />
+        <AssociationConnector Association="ProjectsAccountingModel.FK__Invoices__Projec__656C112C" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
