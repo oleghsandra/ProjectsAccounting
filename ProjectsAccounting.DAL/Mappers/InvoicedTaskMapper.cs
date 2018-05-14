@@ -15,7 +15,7 @@ namespace ProjectsAccounting.DAL.Mappers
                 UserInternalRate = dbModel.UserInternalRate ?? 0,
                 UserExternalRate = dbModel.UserExternalRate ?? 0,
                 ReportedHours = dbModel.ReportedHours ?? 0,
-                TaskName = dbModel.TaskName,
+                TaskName = dbModel.TaskName
             };
         }
 

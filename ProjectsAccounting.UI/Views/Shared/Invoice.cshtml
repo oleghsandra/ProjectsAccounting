@@ -1,67 +1,84 @@
-﻿@model ProjectsAccounting.Common.Models.InvoiceModel
+﻿@model ProjectsAccounting.UI.Models.InvoiceViewModel
 <button class="btn btn-info top-buffer" id="printInvoive">Print Invoice</button>
 <fieldset class="fieldset-details top-buffer">
-    <legend>Ivoice #@Model.InvoiceId</legend>
+    <legend>Ivoice #@Model.InvoiceModel.InvoiceId</legend>
     <div id="invoice">
-        <h1 align="center">INVOICE #@Model.InvoiceId</h1>
+        <h1 align="center">INVOICE #@Model.InvoiceModel.InvoiceId</h1>
+        <h3 align="center">Date @Model.InvoiceModel.InvoiceDate.ToShortDateString()</h3>
         <div class="row">
             <div class="col-sm-6">
                 <label style="font-size: 25px; font-weight: bold">From</label>
                 <div>
-                    <label style="font-size: 14px">@Model.CompanyName</label>
+                    <label style="font-size: 14px">@Model.InvoiceModel.CompanyName</label>
                 </div>
                 <div>
-                    <label style="font-size: 14px">Location: @Model.LocationAddress</label>
+                    <label style="font-size: 14px">Location: @Model.InvoiceModel.LocationAddress</label>
                 </div>
                 <div>
-                    <label style="font-size: 14px">Email: @Model.Fax</label>
+                    <label style="font-size: 14px">Email: @Model.InvoiceModel.Fax</label>
                 </div>
                 <div>
-                    <label style="font-size: 14px">Phone: @Model.Phone</label>
+                    <label style="font-size: 14px">Phone: @Model.InvoiceModel.Phone</label>
                 </div>
             </div>
             <div class="col-sm-6">
                 <label style="font-size: 25px; font-weight: bold">To</label>
                 <div>
-                    <label style="font-size: 14px">@Model.CustomerName</label>
+                    <label style="font-size: 14px">@Model.InvoiceModel.CustomerName</label>
                 </div>
                 <div>
-                    <label style="font-size: 14px">Location: @Model.CustomerAddress</label>
+                    <label style="font-size: 14px">Location: @Model.InvoiceModel.CustomerAddress</label>
                 </div>
                 <div>
-                    <label style="font-size: 14px">Email: @Model.CustomerEmail</label>
+                    <label style="font-size: 14px">Email: @Model.InvoiceModel.CustomerEmail</label>
                 </div>
                 <div>
-                    <label style="font-size: 14px">Phone: @Model.CustomerPhone</label>
+                    <label style="font-size: 14px">Phone: @Model.InvoiceModel.CustomerPhone</label>
                 </div>
             </div>
-        </div>
-        <div>
-            <label style="font-size: 14px; margin-top:10px">Comment: @Model.Notes</label>
         </div>
         <div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Task</th>
-                        <th>Rate</th>
-                        <th>Hours</th>
+                        <th>User</th>
+                        <th class="text-right">Rate</th>
+                        <th class="text-right">Hours</th>
+                        <th class="text-right">Total</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @if (Model.InvoicedTasks != null && Model.InvoicedTasks.Any())
+                    @if (Model.InvoicedUsers != null && Model.InvoicedUsers.Any())
                     {
-                        foreach (var task in Model.InvoicedTasks)
+                        foreach (var invoicedUsers in Model.InvoicedUsers)
                         {
                             <tr>
-                                <td>@task.TaskName</td>
-                                <td>@task.UserExternalRate</td>
-                                <td>@task.ReportedHours</td>
+                                <td>@invoicedUsers.UserName</td>
+                                <td class="text-right">@invoicedUsers.ExternalRate.ToString("0.00")</td>
+                                <td class="text-right">@invoicedUsers.Hours.ToString("0.00")</td>
+                                <td class="text-right">@invoicedUsers.Total.ToString("0.00")</td>
                             </tr>
                         }
                     }
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="text-right" colspan="3">Sub-Total</th>
+                        <th class="text-right">@Model.SubTotal.ToString("0.00")</th>
+                    </tr>
+                    <tr>
+                        <th class="text-right" colspan="3">Tax %</th>
+                        <th class="text-right">@Model.InvoiceModel.TaxRate.ToString("0.00")</th>
+                    </tr>
+                    <tr>
+                        <th class="text-right" colspan="3">Total</th>
+                        <th class="text-right">@Model.Total.ToString("0.00")</th>
+                    </tr>
+                </tfoot>
             </table>
+        </div>
+        <div>
+            <label style="font-size: 14px; margin-top:10px">Comment: @Model.InvoiceModel.Notes</label>
         </div>
     </div>
 </fieldset>

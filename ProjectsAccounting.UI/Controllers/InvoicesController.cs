@@ -8,12 +8,15 @@ namespace ProjectsAccounting.UI.Controllers
 {
     public class InvoicesController : Controller
     {
-        public InvoicesController(IInvoicesProvider invoicesProvider)
+        public InvoicesController(IInvoicesProvider invoicesProvider, IUsersProvider usersProvider)
         {
             this._invoicesProvider = invoicesProvider;
+            this._usersProvider = usersProvider;
         }
 
         private IInvoicesProvider _invoicesProvider { get; set; }
+
+        private IUsersProvider _usersProvider { get; set; }
 
         public ActionResult Index()
         {
@@ -24,8 +27,11 @@ namespace ProjectsAccounting.UI.Controllers
         [HttpPost]
         public ActionResult LoadInvoice(int invoiceId)
         {
+            var users = this._usersProvider.GetAll();
             var invoice = this._invoicesProvider.Get(invoiceId);
-            return PartialView("Invoice", invoice);
+            var viewModel = new InvoiceViewModel(users, invoice);
+
+            return PartialView("Invoice", viewModel);
         }
     }
 }
