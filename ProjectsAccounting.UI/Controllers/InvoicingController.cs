@@ -45,6 +45,9 @@ namespace ProjectsAccounting.UI.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Load all iterations for projects
+        /// </summary>
         [HttpPost]
         public ActionResult LoadIterations(int projectId)
         {
@@ -55,6 +58,9 @@ namespace ProjectsAccounting.UI.Controllers
             return PartialView("IterationsList", iterations);
         }
 
+        /// <summary>
+        /// Load all tasks for iteration
+        /// </summary>
         [HttpPost]
         public ActionResult LoadTasks(string iterationId)
         {
@@ -62,6 +68,9 @@ namespace ProjectsAccounting.UI.Controllers
             return PartialView("InvoicedTasks", tasks);
         }
 
+        /// <summary>
+        /// Insert invoice
+        /// </summary>
         [HttpPost]
         public void SaveInvoice(InvoiceModel invoiceModel)
         {

@@ -7,6 +7,9 @@ namespace ProjectsAccounting.DAL.Repositories
 {
     public class CompanyInfoRepository : RepositoryBase<ProjectsAccountingEntities>, ICompanyInfoRepository
     {
+        /// <summary>
+        /// Get all company info
+        /// </summary>
         public CompanyInfoModel GetCompanyInfo()
         {
             return this.Context.CompanyInfo.ToList()

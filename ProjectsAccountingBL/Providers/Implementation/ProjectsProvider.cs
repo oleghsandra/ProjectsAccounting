@@ -34,6 +34,9 @@ namespace ProjectsAccountingBL.Providers.Implementation
             this._projectRepository.UpdateCustomerInfo(model);
         }
 
+        /// <summary>
+        /// Synhronize projects from DB wit tfs projects
+        /// </summary>
         public void Synhronize()
         {
             var ownProjects = this._projectRepository.GetAll();

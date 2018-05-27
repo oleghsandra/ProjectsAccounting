@@ -19,6 +19,9 @@ namespace ProjectsAccounting.DAL.Repositories
 
         private bool disposed = false;
 
+        /// <summary>
+        /// Override dispose method
+        /// </summary>
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed)

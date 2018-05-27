@@ -29,6 +29,9 @@ namespace ProjectAccountingBL.Providers.Implementation
             this._userRepository.ChangeInternalRate(userId, internalRate);
         }
 
+        /// <summary>
+        /// Synhronize users from DB wit tfs users
+        /// </summary>
         public void Synhronize()
         {
             var ownUsers = this._userRepository.GetAll();

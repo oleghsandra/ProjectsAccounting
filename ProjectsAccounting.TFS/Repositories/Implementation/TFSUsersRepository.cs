@@ -1,13 +1,15 @@
 ﻿using ProjectsAccounting.TFS.TFSDB;
 using System.Collections.Generic;
 using System.Linq;
-using ProjectsAccounting.Common;
 using ProjectsAccounting.Common.Models;
 
 namespace ProjectsAccounting.TFS.Repositories
 {
     public class TFSUsersRepository : RepositoryBase<Tfs_DefaultCollectionEntities>, ITFSUsersRepository
     {
+        /// <summary>
+        /// Get all users
+        /// </summary>
         public List<UserModel> GetAll()
         {
             var result = from grp in this.Context.ADObjects

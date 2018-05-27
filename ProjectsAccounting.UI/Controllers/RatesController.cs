@@ -47,6 +47,9 @@ namespace ProjectsAccounting.UI.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Save external user rate
+        /// </summary>
         [HttpPost]
         public JsonResult SaveProjectUserRate(ProjectRateModel model)
         {
@@ -72,12 +75,18 @@ namespace ProjectsAccounting.UI.Controllers
             }
         }
 
+        /// <summary>
+        /// Save internal user rate
+        /// </summary>
         [HttpPost]
         public void SaveInternalRate(int userId, double internalRate)
         {
             this._usersProvider.ChangeInternalRate(userId, internalRate);
         }
 
+        /// <summary>
+        /// Synhronize Users
+        /// </summary>
         [HttpPost]
         public void SynhronizeUsers()
         {

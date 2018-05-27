@@ -1,7 +1,6 @@
 ﻿using ProjectsAccounting.TFS.TFSDB;
 using System.Collections.Generic;
 using System.Linq;
-using ProjectsAccounting.Common;
 using ProjectsAccounting.Common.Models;
 using System;
 
@@ -9,6 +8,9 @@ namespace ProjectsAccounting.TFS.Repositories
 {
     public class TFSTasksRepository : RepositoryBase<Tfs_DefaultCollectionEntities>, ITFSTasksRepository
     {
+        /// <summary>
+        /// Get all tasks for iteration
+        /// </summary>
         public List<TaskModel> GetAll(string iterationId)
         {
             var iterationIdNumber = Convert.ToInt32(iterationId);

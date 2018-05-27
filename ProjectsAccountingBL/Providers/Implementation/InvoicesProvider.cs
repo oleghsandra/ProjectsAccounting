@@ -48,11 +48,17 @@ namespace ProjectAccountingBL.Providers.Implementation
             return this._invoicesRepository.Get(invoiceId);
         }
 
+        /// <summary>
+        /// Get all invoices
+        /// </summary>
         public List<InvoiceModel> GetAll()
         {
             return this._invoicesRepository.GetAll();
         }
 
+        /// <summary>
+        /// Insert invoice with invoiced tasks
+        /// </summary>
         public void SaveInvoice(InvoiceModel invoiceModel)
         {
             var users = this._usersRepository.GetAll();
@@ -75,6 +81,9 @@ namespace ProjectAccountingBL.Providers.Implementation
             }
         }
 
+        /// <summary>
+        /// Fill invoiced tasks
+        /// </summary>
         private void FillInvoicedTasks(
             InvoiceModel invoiceModel,
             List<UserModel> users, 
@@ -111,6 +120,9 @@ namespace ProjectAccountingBL.Providers.Implementation
             }
         }
 
+        /// <summary>
+        /// Fill company info
+        /// </summary>
         private void FillCompanyInfo(InvoiceModel invoiceModel, CompanyInfoModel companyInfo)
         {
             invoiceModel.CompanyName = companyInfo.CompanyName;
@@ -123,6 +135,11 @@ namespace ProjectAccountingBL.Providers.Implementation
             invoiceModel.OfficeRate = companyInfo.OfficeRate;
         }
 
+        /// <summary>
+        /// Fill customer info from project
+        /// </summary>
+        /// <param name="invoiceModel"></param>
+        /// <param name="project"></param>
         private void FillProjectCustomerInfo(InvoiceModel invoiceModel, ProjectModel project)
         {
             invoiceModel.CustomerName = project.CustomerName;
