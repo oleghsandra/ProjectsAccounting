@@ -11,5 +11,13 @@
         public int ProjectId { get; set; }
 
         public ProjectModel Project { get; set; }
+
+        public ProjectModel ProjectModel
+        {
+            get => default(ProjectModel);
+            set
+            {
+            }
+        }
     }
 }

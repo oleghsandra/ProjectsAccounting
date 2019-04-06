@@ -47,6 +47,8 @@
     <Compile Include="Models\ProjectRateModel.cs" />
     <Compile Include="Models\UserModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Models\ClassDiagram1.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

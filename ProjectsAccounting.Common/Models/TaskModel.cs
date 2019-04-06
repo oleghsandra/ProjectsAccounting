@@ -15,5 +15,13 @@
         public double HoursReported { get; set; }
 
         public UserModel User { get; set; }
+
+        public UserModel UserModel
+        {
+            get => default(UserModel);
+            set
+            {
+            }
+        }
     }
 }

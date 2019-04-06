@@ -18,5 +18,21 @@ namespace ProjectsAccounting.Common.Models
 
         public ProjectModel Project { get; set; }
         public UserModel User { get; set; }
+
+        public UserModel UserModel
+        {
+            get => default(UserModel);
+            set
+            {
+            }
+        }
+
+        public ProjectModel ProjectModel
+        {
+            get => default(ProjectModel);
+            set
+            {
+            }
+        }
     }
 }

@@ -1,4 +1,7 @@
-﻿INSERT INTO [dbo].[CompanyInfo]
+﻿USE ProjectsAccountingTest
+GO
+
+INSERT INTO [dbo].[CompanyInfo]
            ([CompanyName]
            ,[MainAccpuntantName]
            ,[OwnerName]

@@ -21,3 +21,21 @@ C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\Proje
 C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccountingBL\obj\Debug\ProjectsAccountingBL.dll
 C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccountingBL\obj\Debug\ProjectsAccountingBL.pdb
 C:\LP\КН-37 другий семестр\Курсова\ProjectAccounting\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccountingBL.dll.config
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccountingBL.dll.config
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccountingBL.dll
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccountingBL.pdb
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccounting.Common.dll
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccounting.DAL.dll
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccounting.TFS.dll
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\EntityFramework.dll
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccounting.Common.pdb
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccounting.DAL.pdb
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccounting.DAL.dll.config
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccounting.TFS.pdb
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\ProjectsAccounting.TFS.dll.config
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\bin\Debug\EntityFramework.xml
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\obj\Debug\ProjectsAccountingBL.csprojAssemblyReference.cache
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\obj\Debug\ProjectsAccountingBL.csproj.CoreCompileInputs.cache
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\obj\Debug\ProjectsAccountingBL.csproj.CopyComplete
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\obj\Debug\ProjectsAccountingBL.dll
+C:\LP\ProjectsAccounting\ProjectsAccountingBL\obj\Debug\ProjectsAccountingBL.pdb

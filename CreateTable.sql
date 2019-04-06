@@ -1,4 +1,4 @@
-﻿USE ProjectsAccounting
+﻿USE ProjectsAccountingTest
 GO
 
 --

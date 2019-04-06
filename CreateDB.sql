@@ -1,2 +1,2 @@
-﻿CREATE DATABASE ProjectsAccounting
+﻿CREATE DATABASE ProjectsAccountingTest
 GO
